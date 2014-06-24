@@ -1,0 +1,78 @@
+What is Java?
+
+   The "Java" is platform to develop, deploy (install) and execute
+   Java programs.
+
+   There are three Java Platforms for different types of applications:
+ 
+      1. Java SE (Standard Edition) - (Which we are learning)
+      2. Java EE (Enterprize Edition)
+      3. Java ME (Micro Edition)
+
+      
+   Java SE 
+   =========
+
+   It is the prime platform for Java EE and ME. The software which installs Java SE is called Java Developer Kit (JDK). Current version of JDK or Java SE is 8 (1.8.0) - The Java SE 8.
+
+
+  The JDK/Java SE bundle is composed of 
+
+       1. The Java Programming language
+       2. The Java Core Class (Types) Library. Also known as           Application Programming Interface - API
+       3. The Java Runtime Environment - JRE.
+
+
+  1. The Java Language
+
+     The Java Language is a statically and strongly typed programming      language. 
+     The Java language supports a new program design technique called      "Object Oriented Paradigm/Programming". In C Language, we've      learnt procedure (function) oriented program design. The Java extends the function (procedure) oriented program and the new program design is called OOP.
+
+     
+  2. The Java Core APIs 
+
+     It is fully object oriented class library. Java's class library is      completely designed using object-oriented paradigm/approach and to use Core APIs, one must have to adpot the OOP design.
+
+
+     There are approx 3000 different datatypes (in Java, they are      called classes, interfaces, enums, and annotations) for      representing simple data to complex data.
+
+     The Java Platform uses "package" system to organize the      datatypes/classes. The 'package' is a mechanism to create a group of related classes and keep one group of classes distinct from another group of classes.
+
+      In fact the package is a file system folder in an OS.
+
+      
+  3. The Java Runtime Environment - JRE
+
+      The JRE is rich runtime environment which provides number of runtime services to the Java program on behalf of the developer and these services include 
+
+       1. Compilation of code
+       2. Memory allocation
+       3. Automatic Memory deallocation -- The Garbage Collector
+       4. Thread - A technique to execute two or more methods                    concurrently.
+       5. Code security
+          and many more .....
+
+
+
+Installing and configure JDK
+=============================
+
+1 Download JDK from oracle site -- www.oracle.com
+
+2 After installing the JDK you will find
+
+x:\Program Files\Java\jdkx.x.x  folder and this folder is called   JAVA_HOME. 
+
+3. Inside the JAVA_HOME folder we've "bin" folder. The "bin" folder contains Java compiler ("javac.exe") , Java Launcher or Java Virtual Machine (java.exe) and many more tools.
+
+4. Set Path environment variable
+
+    Path = x:\xyz;x:\Program Files\Java\jdkx.x.x\bin
+
+5. open command prompt and issue
+
+   >javac  
+   >java
+
+   To test the path of Java compiler and launcher.
+    

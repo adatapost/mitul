@@ -1,0 +1,252 @@
+Example: Input marks of five subjects and calculate total & percent.
+
+Type Casting or Datatype conversion
+-------------------------------------------------------------------
+When we perform any arithmetic operation between two values/variables (operands), we will obtain result data as per frollowing conversion table.
+
+In following table, a value of small volume datatype automatically converted into large volumn datatype. 
+
+ 
+
+Type    char  int   float   double
+-------------------------------------
+char    char   int  float  double
+int     int    int  float  double
+float   float  float float double 
+double  double double double double
+
+So operands result will be converted impicitly (or internally) by the OS.
+
+Ex:
+
+   int n = 5, m = 2;
+   float f;
+   f = n / m;      result will be 2.000000 because both "n" and "m" 			   operands are of "int" type.
+
+Force-conversion or explicit conversion operator
+====================================================
+  Syntax:
+
+           (target datatype name) expression;
+
+   int n = 5, m = 2;
+   float f;
+
+   f = (float) n / m; Before division take place, value of "n" is 			converted into "float" datatype and answer is
+ 			2.500000
+
+ Note: Explicit conversion also called "Cast".
+
+   
+Increment and Decrement Operator
+==============================================
+
+ ++    -- It adds value 1 to variable
+ --    -- It subtracts vaue 1 from the variable.
+
+#include <stdio.h>
+
+int main()
+{
+   int a = 10;
+
+    a++;   
+    printf("\n%i",a);     11
+    ++a;
+    printf("\n%i",a);     12
+    a--;
+    printf("\n%i",a);     11
+    --a;
+    printf("\n%i",a);     10
+}
+
+ a++    
+ ++a       a = a + 1;
+   
+
+Adding comments OR user specific note into C programs
+===================================================================
+To make program more readable, you can add your comments/feedback/documentation using following comment syntax:
+
+ /*
+    any statement in between /* and */ will be ignored by the C     compiler.
+ */
+
+ 
+ Comment begins with /*  and ends with */
+
+
+Example:
+/*
+
+ This program display square of given number.
+
+ Author : Mitul
+ Date   : 21-04-2014 
+
+*/
+
+#include <stdio.h>  /* File inclusion directive */
+
+/* main program starts here */
+int main()
+{
+    /* variable declaration */
+    int no,square;
+
+    /* Read from keyboard */
+    printf("Enter the no : ");
+    scanf("%i",&no);   /* Don't forget to use & */
+   
+    square = no * no;
+    printf("\nSquare : %i",square);
+
+}
+/* end of program */
+
+
+
+Pre/Post Increment & Decrement operator
+===================================================================
+
+Post Increment     var++
+Post Decrement     var--
+
+		   Post incr/decr will take place after the execution 		   of an expression.
+
+             e.g
+
+                 a = 1;
+
+                 b = a++; is equivalent to  b = a;
+					    a= a + 1;
+
+
+Pre Increment    ++var
+Pre Decrement    --var
+
+                   Pre Incr/decr will take place before the execution
+			of an expression.
+
+        e.g 
+              a = 1;
+              b = ++a; is equivelent to   a = a + 1;
+					  b = a;
+
+#include <stdio.h>
+
+int main()
+{
+    int a,b;
+
+    a = 1;
+    b = a++;     /* POST Incr */
+    printf("\n%i   %i",a,b);   /* 2 1 */
+
+    a = 1;
+    b = ++a;     /* PRE Incr */
+    printf("\n%i   %i",a,b);  /* 2 2 */
+   
+}
+
+#include <stdio.h>
+
+int main()
+{
+    int a,b;
+
+    a = 1;
+    b = a++ + a++ + a++;     
+    printf("\n%i   %i",a,b);   
+
+    a = 1;
+    b = ++a + ++a;
+    printf("\n%i   %i",a,b);  
+  
+}
+
+ a=a+1
+ a=a+1
+
+ b= 3 + 3
+
+Note: ++ and -- operator returns different result on different compiler so these two operators are called "undefined behavior operator".
+
+
+Relational operators
+====================================================================
+Relational expressions returns either true or false -- boolean value. In C language value 0 means false and non-zero means true.
+
+ Operators
+   >		Greater than
+   <		Less than
+   >=		Greater or equals to
+   <=		Less or equals to
+   ==		Equals to
+   !=		Not equals to
+
+Ex:
+
+main()
+{
+   printf("\n%i", 10>3); /* true - 1 */
+   printf("\n%i", 10>20); /* 0 - false */
+}
+
+We will use relational operator to compare values of char, int and float/double datatypes.   
+
+Ex:
+
+#include <stdio.h>
+
+int main()
+{
+    int a=3,b=20;
+    
+    printf("\n%i", a==b); /* 0 */
+    printf("\n%i", a!=b); /* 1 */
+    printf("\n%i", a<b);  /* 1 */
+    printf("\n%i",a=b);  /* 20 */
+    printf("\n%i", a==b); /* 1 */
+  
+}
+
+Logical Operators
+===================================================================
+Logical operator creates a compound expression.
+
+ Operators
+ -----------
+
+    &&		Logical and
+
+		Syntax:
+
+			exp1 && exp2   = boolean
+ 
+                         1    &&  1    =  1 (true)
+                         1    &&  0    =  0  (false)
+                         0    &&  1    =  0  (false)
+                         0    &&  0    =  0  (false)
+
+   ||            Logical or
+
+ 		Syntax:
+
+			exp1 || exp2   = boolean
+ 
+                         1    ||  1    =  1
+                         1    ||  0    =  1
+                         0    ||  1    =  1
+                         0    ||  0    =  0 
+
+                 It returns true if any one from the two expression 		 returns true.
+
+                
+  !    		Logical not  (Negate operator)
+
+			Syntax:  !expression
+
+                     !exp  =  
+                      !0    =  1  (! ZERO/FALSE means true)
+                      !1    =  0  (! NonZero/True means false)

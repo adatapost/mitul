@@ -1,0 +1,153 @@
+Data Types
+===================================================================
+
+Datatypes (aka class of data) describe data and type (kind) of value.
+
+
+  Different values falls into number of datatype categories and in C language we have following datatypes:
+
+  1. Fundamental Datatypes OR Primitive Datatypes
+     These datatypes originated from the hardware or operating system.
+  2. Derived datatypes 
+
+     These types are created using primitive types to represent complex
+     data structure.
+
+  3. User-defined datatypes
+     We can form our own size and type datatype.
+
+
+ Fundamental or primitive types are -- char, int, float, double and 					void
+
+ Derived types are -- array, functions , pointer
+
+ USer-defined types are -- structure, enum 
+
+ [Note: Students must have to learn all these types in order to code         the  C language. ]
+
+
+Primitive Types
+================
+
+
+Types are instructions for the operating system to allocate memory for the user program to store data into RAM.
+
+For example, If you wish to store 10 numeric value then you must have to tell the OS to allocate 4 bytes. If OS allocate 4 bytes for you then you can store numeric value in it.
+
+If OS fails to allocate memory then you can't store. It means you need memory (buffer) to hold/store data but we don't know how much memory is to be needed to store data so we will ask the OS via "datatypes" system.
+
+
+The allocated memory region by the OS is known as an "object". The size of an object can be vary from 1 byte to 2GB or more. 
+
+
+ Type Name		Size (in bytes)		Description
+ -----------------------------------------------------------
+ int			Not Available	  The size of int type is
+					  Hardware or OS depdendent.
+			For 32 bits architecture it is 4 bytes
+			For 64 bits              it is 8 bytes
+			For 16 bits		 it is 2 bytes
+
+					 It store integer value with
+					 +ve or -ve sign.
+
+ char			1 byte		 To represent ASCII value of
+					 character. There are 256
+					 ASCII characters.
+
+		Any computer system must have total 256 chars where each char is uniquely attributed via integer number which is called ASCII value (American Standard Code for Information Interchange).
+
+       ASCII Char			ASCII Number
+       (Extended chars)		
+     ----------------------------------------------------
+          \0 (null)			0
+	  ..				1 (In command prompt 
+					   hold down Alt + Number from
+					   numeric key pad)
+          ..				..
+	  \a (audible bell)		7
+     	  \b (backspace			8
+	  \t  (tab)			9
+          ...				..
+	  \r (enter)			13
+          ...				..
+	  space				32
+          ...
+	  ...
+	  0				48
+	  1				49
+	 ...
+  	 ...
+	  A				65
+	  B				66
+	 ...
+         ...
+          a				97
+	  b				98
+	  ....
+          ....
+	  blank				255
+
+ float			4 bytes		to represents real value.
+					
+ 					approx range - 
+                                                   308
+					+/- 1.7 x 10
+					Scale value of float type is 6
+
+					0.000000
+
+ double			8 bytes		to represent real value (double 					than float)
+					It support 14 digits scale.
+ void 			N.A		It is generic (general purpose)
+					type.
+
+
+How data/value stored into RAM or into bytes?
+---------------------------------------------------------------------
+The OS uses binary number system to represent data and instructions. Any data/instruction given to the OS must be translated into binary form.
+
+ Example:
+
+   How the OS store 10 decimal value into 1 byte?
+
+   => First of all OS convert decimal to binary and store its bit       string (1s and 0s) into a byte.
+
+      Binary of 10 is "1010" and it would store into a byte like:
+
+         |-------------------------------|
+         | 0 | 0 | 0 | 0 | 1 | 0 | 1 | 0 |   1 byte = 8 bits (biNARY
+         |-------------------------------|                    DIGIts) 
+           8   7   6   5   4   3   2   1          
+ 
+     [Note: Each bit in a byte hold +ve or -ve charge (electric) - 1             for positive and 0 for negative or vice versa]
+
+
+        2| 7          Remainder     = 1 1 1
+       --|----
+        2| 3         1
+       --|----
+        2| 1         1
+       --|----
+         |           1  ^  (arrange remainder value from bottom to top
+       --|----          |
+         |
+
+          
+          0     0   0  0     0 1 1 1 
+      x
+          128   64  32 16    8 4 2 1 
+         -----------------------------
+           0  +  0 + 0 +0  + 0 + 4 + 2 + 1 = 7
+                  
+
+  
+
+
+
+    1 0 0 0  0 0 0 1 
+
+  154
+   2          1          0
+ 10 x 1 +    10 x 5 +   10 x 4
+

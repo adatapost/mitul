@@ -1,0 +1,190 @@
+User-defined datatype
+====================================================================
+With the help of "built-in" types (int,char,float,double,arrays, functions..) we can defined our own style datatypes using "struct" keyword.
+
+In fact "struct" (pronounce as 'structure') keyword is used to create new-datatype.
+
+General Syntax:
+
+
+struct NewDataTypeName
+{
+   /* data-members or fields which describe the structure of new       datatype */
+
+   datatype memberName1;
+   datatype memberName2;
+   .....
+}; <--- Do not forget to terminate (;).
+
+Note:  1. NewDataTypeName must be a valid identifier.
+       2. We will have to create one or more members of newly defined
+          datatype. 
+          Syntax to create member is same as variable declaration but
+          they are not variables instead they are known as "data-          members" or "fields".
+
+       3. We wil have to create a vaiable of "struct" in order to use           the data-members or fields.
+
+           Syntax:
+
+             struct NewDataTypeName var1,var2,....;
+
+       4. To set or get (store or retrieve) data into/from struct variable, we must have to use DOT (.) member-access operator.
+
+             var1.memberOne = value1;
+             var1.memberTwo = value2;
+                 ^
+                 |
+             Period or DOT is known as member access operator.
+               
+#include <stdio.h>
+
+struct Date
+{
+   int d,m,y; /* three fields */
+};
+
+int main()
+{
+    struct Date a,b; /* Date variable */
+    a.d = 10;
+    a.m = 3;
+    a.y = 2013;
+    b.d = 31;
+    b.m = 4;
+    b.y = 2014;
+
+    printf("\n%i-%i-%i",a.d,a.m,a.y);
+    printf("\n%i-%i-%i",b.d,b.m,b.y);
+
+}
+
+
+Example: Define "student" type (datatype) that contains roll, name and marks of three subjects.
+
+struct student
+{
+    int roll;
+    char name[50];
+    int eng,guj,hin;
+};
+
+int main()
+{
+    struct student a;
+    float total,per;
+
+    printf("Enter roll, name and marks of three subjects : ");
+    scanf("%i%s%i%i%i",&a.roll, &a.name,&a.eng,&a.guj,&a.hin);
+
+    total = a.eng + a.hin + a.guj;
+    per = total/3;
+
+    printf("\nRoll : %i",a.roll) ;
+    printf("\nRoll : %s",a.name) ;
+    printf("\nTotal : %f",total) ;
+    printf("\nPer : %f",per) ;
+}
+
+
+
+Rename the datatype - typedef keyword
+============================================================
+
+ typedef existing_type  new_name;
+
+
+Ex:
+
+typedef int INT;
+typedef struct {
+    int roll;
+    char name[30];
+}STUDENT;
+
+typedef float real;
+
+int main()
+{
+    INT no= 10;
+    real amount = 100.100;
+    STUDENT a;
+    printf("\n%i",no);
+}
+
+
+Passing and returning "struct" between functions
+====================================================================
+
+Syntax:
+
+   struct struct_name   functionName(struct struct_name var1,....);
+
+Or for typedef type
+
+   struct_name functionName(struct_name var1,....);
+
+
+typedef struct
+{
+    int roll;
+    char name[50];
+    int eng,guj,hin;
+}student;
+
+student input(void);
+void output(student s);
+
+student input(void)
+{
+    student a;
+    printf("Enter roll, name and marks of three subjects : ");
+    scanf("%i%s%i%i%i",&a.roll, &a.name,&a.eng,&a.guj,&a.hin);
+    return a;
+}
+void output(student a)
+{
+   float total,per;
+   total = a.eng + a.hin + a.guj;
+    per = total/3;
+
+    printf("\nRoll : %i",a.roll) ;
+    printf("\nName : %s",a.name) ;
+    printf("\nTotal : %f",total) ;
+    printf("\nPer : %f",per) ;
+}
+int main()
+{
+    student x,y;
+    x= input();
+    y = input();
+    output(x);
+    output(y);
+}
+
+
+
+Array of struct
+===========================================
+
+  struct struct_name var[size];
+Or
+  struct_name var[size]; /* typedef struct */
+
+....
+.... 
+As per prev example
+.....
+int main()
+{
+    student students[5];
+    int i;
+
+    for(i=0;i<5;i++) {
+        students[i] = input();
+    }
+
+    for(i=0;i<5;i++) {
+        output(students[i]);
+    }
+
+}

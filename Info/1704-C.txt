@@ -1,0 +1,36 @@
+C Compilers
+=====================================================================
+Current version (Edition) of C-compiler is C11 and number of software vendors have implementation of C11 language. We will use industry standard C compiler from GNU or MingW (for windows) or cygwin or Microsoft.
+
+[TurboC compiler was introduced in 1985 and they stopped production of C language in 1990 so do not use old C compiler]
+
+
+Installing MingW/GNU C/C++ compiler
+-----------------------------------
+1. Download or obtain the copy of codeblock+MingW.
+
+   CodeBlock is an editor or IDE (Integrated Development Environment)    where as MingW offer c/c++ compilers.
+
+   Note: Linux destro (install) already have C/C++ compilers.
+
+2. Install the C/C++ compiler (It will installed under \Program Files    folder but you can change to your folder.)
+
+3. Set enviornment "Path" variable to lookup C/C++ compiler    executables.
+
+   To set Path of any executable: (.exe)
+
+      [Assume that gcc.exe (c compiler) exists under 
+           c:\Program Files\CodeBlocks\MingW\Bin then we must have to 
+           set the Path = c:\Program Files\CodeBlocks\MingW\Bin; ]
+
+      What is "Path"?
+         A Path is operating system variable that store comma seperated
+         directories. When we issue a command, the OS will find/search          the issued command or program from the directories list.
+
+     
+     1. My computer + Right mouse click + Properties + Advance System Settings + Click on "Environment Variables" button.
+
+     2. Add (new) or Edit user's env variable.
+
+
+

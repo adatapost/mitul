@@ -1,0 +1,187 @@
+#include <stdio.h>
+
+void sort_asc(int nos[], int size);
+void sort_des(int nos[], int size);
+
+int main()
+{
+  int nos[5]={1,2,-4,10,-6};
+  int i;
+
+   sort_asc(nos,5);
+   printf("\nAscending order");
+   for(i=0;i<5;i++)
+    {
+      printf("\n%i",nos[i]);
+     }
+
+    sort_des(nos,5);
+    printf("\nDescending order");
+    for(i=0;i<5;i++)
+    {
+      printf("\n%i",nos[i]);
+     }
+}
+
+/* function definitions */
+void sort_asc(int nos[],int size)
+{
+   int i,j,temp;
+
+    for(i=0;i<size;i++)
+     {
+        for(j=i+1;j<size;j++)
+         {
+           if(nos[i] > nos[j])  
+            {
+              temp = nos[i];
+              nos[i] = nos[j];
+              nos[j] = temp;
+             }
+          }
+      }
+}
+  
+void sort_des(int nos[],int size)
+{
+   int i,j,temp;
+
+    for(i=0;i<size;i++)
+     {
+        for(j=i+1;j<size;j++)
+         {
+           if(nos[i] < nos[j])  
+            {
+              temp = nos[i];
+              nos[i] = nos[j];
+              nos[j] = temp;
+             }
+          }
+      }
+}
+
+
+Variable scope and lifetime
+====================================================================
+Variable scope describe where and when a variable is available for the use in one or more functions.
+
+Variable lifetime describes the life of variable. When it is created and when it will be discarded or released from the memory.
+
+We've two scope and lifetime of variables:
+
+1. Automatic or local variables -- Variables created inside the function without using "static" keyword and they are created when a function is called and released/discarded when a function is terminated.
+
+    Scope - Auto variable are only available inside the function in 		which they are created.
+
+    Life - They are alive and active inside the function in which they 	   are created.
+
+2. Static or global variables -- Variables created inside the function using "static" keyword or created outside the function with or without static keyword are global or static variables.
+
+   They are created when program is lanched and remains into memory    till a program is running. They are discarded when program ends.
+
+   Scope -- They are available anywhere - inside or outside the 		function.
+
+   Life  -- They are alive and active throught the program.
+ 
+
+Example: 
+
+int no = 10; /* global or static (static is optional) */
+static int max = 90; /* global */
+
+void test(void);
+
+void test(void)
+{
+    printf("\n%i  %i",no,max);
+}
+int main()
+{
+     printf("\n%i  %i",no,max);
+     no = 900;
+     max =1000;
+     test();
+}
+
+Example: Create "global/static" variable inside the function.
+
+void test(void);
+
+void test(void)
+{
+     int n = 0; /* local */
+     static int m=0; /* global */
+
+     n++;
+     m++;
+
+     printf("\n%i    %i",n,m);
+}
+int main()
+{
+      test();
+      test();
+      test();
+}
+
+
+User-defined datatype
+====================================================================
+With the help of "built-in" types (int,char,float,double,arrays, functions..) we can defined our own style datatypes using "struct" keyword.
+
+In fact "struct" (pronounce as 'structure') keyword is used to create new-datatype.
+
+General Syntax:
+
+
+struct NewDataTypeName
+{
+   /* data-members or fields which describe the structure of new       datatype */
+
+   datatype memberName1;
+   datatype memberName2;
+   .....
+}; <--- Do not forget to terminate (;).
+
+Note:  1. NewDataTypeName must be a valid identifier.
+       2. We will have to create one or more members of newly defined
+          datatype. 
+          Syntax to create member is same as variable declaration but
+          they are not variables instead they are known as "data-          members" or "fields".
+
+       3. We wil have to create a vaiable of "struct" in order to use           the data-members or fields.
+
+           Syntax:
+
+             struct NewDataTypeName var1,var2,....;
+
+       4. To set or get (store or retrieve) data into/from struct variable, we must have to use DOT (.) member-access operator.
+
+             var1.memberOne = value1;
+             var1.memberTwo = value2;
+                 ^
+                 |
+             Period or DOT is known as member access operator.
+               
+#include <stdio.h>
+
+struct Date
+{
+   int d,m,y; /* three fields */
+};
+
+int main()
+{
+    struct Date a,b; /* Date variable */
+    a.d = 10;
+    a.m = 3;
+    a.y = 2013;
+    b.d = 31;
+    b.m = 4;
+    b.y = 2014;
+
+    printf("\n%i-%i-%i",a.d,a.m,a.y);
+    printf("\n%i-%i-%i",b.d,b.m,b.y);
+
+}
+

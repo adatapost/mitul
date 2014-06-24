@@ -1,0 +1,242 @@
+Java Language
+====================================================================
+
+ Java language features and characteristics
+
+    1. Java supports an object-oriented paradigm
+    2. Java's syntax derived from C language
+    3. Java is a case-sensitive language (Like C Language)
+    4. Semi-colon (;) is used to terminate the statement
+    5. Control statements if,switch, for, while and do while has same
+       syntax as C language.
+    6. Java source code file must have .java extension.
+    7. javac.exe produce object code and store it into .class file 
+
+       The source file will be compiled using "javac" tool and it
+       generate object code or bytecode from source code.
+
+    
+       Sample.java                           
+       (Source Program)  ======Compile====>  Bytecode files
+                                             (Object program)
+                                              
+    
+
+Java Types System
+-----------------
+
+ There are two major datatypes in Java SE Platform:
+
+    1. Primitive datatypes -- There are 8 (eight) primitive datatypes.
+
+		Name		Size (bytes)
+	----------------------------------------
+		byte		1
+		char		2 (It represents unicode/national 					charset)
+		short		2 (short integer - 16 bits)
+		int		4
+		long		8
+		float		4
+		double		8
+		boolean		1 value of boolean must either true or
+				   false.
+
+				  In C, we have used 0 as false and non-zero value as true but in Java it is true or false not zero or nonz-zero.
+
+
+   2. Reference types (datatypes) -- These are TYPES from Java Core 	APIs or user-defined.
+
+        Example: class, interface, enum and annotations are example of
+		 reference types.
+
+        Some of the Core APIs classes which will be used in our programs are :
+
+              1. java.lang.String and
+              2. java.lang.System
+
+             
+          Java's Core API TYPES are organized using package system and the package "java.lang" is default or main or prime package  of any Java program.
+
+          The java.lang package contains number of necessary classes
+	  to define a Java program.
+
+
+          There are other packages in Java core APIs:
+
+             1. java.lang  -- has language basics classes
+             2. java.util  -- has collection, date/time and utility 
+			      classes
+             3. java.awt   -- contains Graphical User interface classes
+	     4. java.io	   -- contains device input/output classes
+             5. java.sql   --- contains database integration classes
+             6. javax.swing -- contains Graphical components - windows
+				button etc classes
+                and many more packages ....
+
+
+             In Core APIs, we've two top-level "packages". 
+
+                     1. java and
+                     2. javax   (x stands from eXtension or eXtra)
+
+                  java.lang.String <------ class
+                   ^     ^
+                   |     |----sub-package
+                   |               | 
+                  top-level package|
+                   |               |
+                   |     |---------  
+                   V     V
+                  java.util.Date  <---- class
+                    
+          Naming conventions of Java types
+          --------------------------------
+
+           1. package names must be lower-letter
+           2. The name of class,interface,enum or annotation must be in
+		"PascalCase" -- Capitalize the first letter of each 		word.
+
+		e.g   HelloWorldApplication
+		 
+           3. Never use _ underscore with package, types, variable and
+		function (method) names.
+           4. variable and function names must be in "camelCase".
+
+               camelCase - first world must be in lower letter and then
+			   capitalize the first letter of each word.
+
+		e.g  int countOfStudent;
+                     double employeeSalary;
+                     String firstName,middleName,lastName;	
+
+            5. Constants must be in UPPER_LETTERs and you can use                underscore to seperate the words.
+
+                   PI = 3.14
+                   MAX_INTERVAL = 10 
+
+Java Program Structure
+------------------------
+
+Java code is stored into .java file and a .java file contains three statements in following order:
+
+
+-------------------------------
+| package statement (optional) |
+| -----------------------------|
+| import statement (optional)  |
+| -----------------------------|
+| class,interface,enum or      |
+| annotation statements....... |
+|------------------------------|
+
+
+package and import statements are optional and we will discus them in later session.
+
+  The class keyword
+  -----------------
+    The class keyword is used to define a new datatype (type or class). You can create your own class ( In C Language, it is 'struct' keyword) using following syntax:
+
+   class ClassName
+   {
+      //fields and
+      //methods (functions)
+    }
+
+  Compile the .java file
+  ----------------------
+
+First.java
+-----------
+class MyClass {}
+
+class HelloApplication
+{
+}
+class Test
+{
+}   
+
++Save It
+
+>javac First.java  (press enter)
+
+   The java compiler compiles and produce each class definition    seperately. It means after compilation we will have three more
+   files
+>dir
+     MyClass.class
+     HelloApplication.class
+     Test.class
+     First.java
+
+  The entry point method - main()
+  ---------------------------------
+  In java we will use term method instead of function. The main()   method define an entry-point for the launcher (java.exe).
+
+  In order to launch your Java program, your class must have main()   method.
+
+   Syntax of main method:
+
+   class YourClassName
+   {
+     public static void main(String []args)
+      {
+         System.out.println("Hello World");
+      }
+    }
+
+   Primary class
+   -------------
+   A class having main() method is called primary or entry-point class and only the primary class name is used by "java" launcher.
+
+   >java YourClassName  (do not add .class extension)
+
+
+Example:
+
+First.java
+----------------
+class MyClass
+{
+  public static void main(String []args)
+  {
+     System.out.println("Hello World from MyClass");
+   }
+}
+class HelloApplication
+{
+public static void main(String []args)
+  {
+     System.out.println("Hello World from Hello");
+   }
+}
+class Test
+{
+public static void main(String []args)
+  {
+     System.out.println("Hello World from Test");
+   }
+}
+
+>javac First.java
+>java HelloApplication
+>java Test
+
+Local variables
+==================================================================
+Variables created inside the function/method is called local variable and local variables are not initialized/assigned automatically so we must have to assign/initialize them before we use them.
+
+class Sample
+{
+  public static void main(String []args)
+  {
+     int no;  /* int no = 10; OK */
+     System.out.println(no); <--- error - variable 'no' is not 
+                                          initialized.
+   }
+}
+ 
+ Assign value or no before it prints.
+
+    no = 10;
+    
+

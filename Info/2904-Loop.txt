@@ -1,0 +1,193 @@
+Nested loop - loop inside another loop
+===============================================================
+
+Example:
+
+Output
+
+ 1  2  3  4 
+ 1  2  3  4
+ 1  2  3  4
+ 1  2  3  4
+
+main()
+{ 
+ int i,j;
+ 
+ for(j=1;j<=4;j++)    /* Outer loop */
+  {
+
+    for(i = 1;i<=4;i++)
+     {
+        printf("%i  ",i);
+     }
+
+    printf("\n"); /* Adds new line */
+  }
+}
+
+Example:
+
+1 1 1 1
+2 2 2 2
+3 3 3 3
+4 4 4 4
+
+Example:
+
+1 2 3 4
+5 6 7 8
+9 10 11 12
+13 14 15 16
+
+Example:
+
+1 2 3 4
+2 3 4 5
+3 4 5 6
+4 5 6 7
+
+Example:
+
+1 0 1 0
+0 1 0 1
+1 0 1 0
+0 1 0 1
+
+Example:
+
+1 1 1 1 1
+1 0 0 0 1
+1 0 0 0 1
+1 0 0 0 1
+1 1 1 1 1
+
+Example:
+
+1 0 0 0 1
+0 1 0 1 0
+0 0 1 0 0
+0 1 0 1 0
+1 0 0 0 1
+
+Example:
+
+1
+1 2
+1 2 3
+1 2 3 4
+
+ for(a = 1; a <= 4; a++) 
+  {
+    for(b = 1; b <= a; b++)
+      {
+          printf(" %i ",b);
+       }
+      printf("\n");
+   }
+
+Triangle
+   
+   *
+  * *
+ * * *
+* * * *
+ 
+for(i=1;i<=10;i++)
+    {
+        /* Add leading spaces */
+        for(j=i;j<=10;j++)
+        {
+            printf(" ");
+        }
+        /* Prints *x (astrisk and space)*/
+        for(j=1;j<=i;j++)
+        {
+            printf("* ");
+
+        }
+        printf("\n");
+    }
+
+
+Example: Print prime numbers between 1 to 1000
+
+ 
+main()
+{
+  int no,i,is_prime;
+  for(no = 1;no<=1000;no++)
+  {
+     is_prime = 1; /* set flag */
+     for(i=2;i<=no/2 && is_prime==1;i++)
+      {
+         if( no % i == 0)
+           {
+             is_prime = 0; /* set 0 to flag */
+            }
+      }
+     if(is_prime)
+      {
+          printf("\n%i",no);
+      }
+  }
+}
+
+
+The break keyword
+===============================================================
+
+The break word is used to terminate the "switch" case and loop.
+
+Example:
+
+ for(i = 1; i <= 100; i++)
+  {
+     if( i % 10 == 0) 
+        {
+           break;
+         }
+     printf("\n%d",i);
+  }
+
+ 
+Example: Input some numbers from the terminal until user type 0.
+
+main()
+{
+  int no, sum  = 0;
+
+  for(;;) /* while(1) */
+  {
+    printf("Enter the no type '0' to exit : ");
+    scanf("%i",&no);
+
+    if(no == 0)
+     {
+        break;
+     }
+
+    sum = sum + no;
+   }
+
+  printf("\nSum : %i",sum);
+}
+ 
+
+OR use do while loop
+----------------------
+
+ do
+  {
+    printf("Enter the no type '0' to exit : ");
+    scanf("%i",&no);
+    sum = sum + no;
+   }while(no!=0);
+
+Example: Input some numbers and find out the maximum , minmum, sum, average of them. 
+
+Example: Input two numbers and exchange their value.
+
+        e.g a = 10  and b = 20
+ 
+   Output a = 20 and b = 10

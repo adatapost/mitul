@@ -1,0 +1,194 @@
+Abstraction -- Hide/show members of your class
+====================================================================
+
+ In Java, we have four keywords known as "Access Control Keywords" OR "Visibility modifiers".
+
+
+  List of visibility modifiers:
+
+    1. public 
+    2. private
+    3. protected
+    4.            (unnamed or no-name) - It is known as "package level
+					 private" modifier.
+
+ These modifiers (keywords) are used with "class" and its "members" to  set visibility constraints.
+
+ e.g     public class MyNumber {
+               private int no;
+               public void printIt() {}
+               .......     
+         }
+
+  
+ 1. public:	The public entities (classes & members) are visible 	        everywhere -- inside & outside class, inside & outside 		the package (folder).
+
+                "public" entities have no restrictions.
+
+ 2. private:    The private entities are visible inside the class in 		which they are created. They are not visible outside 		the class.
+
+ 3.         :   Unnamed or package-level private entities are visible
+		inside the package (folder). They are not visible                 outside the current package (folder).
+
+ 4. protected:  Protected entities have same access as "package-level-                private" but these entities are visible via                 inheritance.
+
+
+
+Example:
+
+class CheckTheAccess {
+    int a;  //package-level-private
+    private int b;
+    public int c;
+    protected int d;   
+  
+}
+
+class Test {
+  public static void main(String []args) {
+       CheckTheAccess x=new CheckTheAccess();
+       x.a = 10; //OK
+       //x.b = 10; //Error
+       x.c = 10; //OK
+       x.d = 10; //OK
+  } 
+} 
+
+Access modifiers with Top-level types (Top level means types which are not nested/inner).
+
+Top-level types have either "public" or "package-level-private" access.
+
+public classes
+--------------
+
+In Java, the public class name and .java file name must be same.
+
+e.g
+
+MyNumber.java
+---------------
+public class MyNumber {}
+
+
+Inner and nested classes
+-------------------------
+Classes created inside another classes and they can have public, private, protected and package level access.
+
+class A  <--- Top-level
+{
+    //nested or inner classes
+    private class One {}
+    protected class Two{} 
+    public class Three{}
+    class Four{}
+}
+     
+
+Always use "private" modifier with fields
+--------------------------------------------------------------------
+As we know that the memory (object) is precious (center of OOP) and we have to protect the object/memory by outsider so we will use "private" modifier to define fields/data-members.
+
+Always use "public" modifier with methods
+---------------------------------------------------------------------
+Methods (functions) or also called messages are fundamental unit of communication between two entities and we will allow partial access to fields via "methods".
+
+
+Example:
+
+class Person
+{
+    //fields must be private
+
+    private int age;
+    private String name;
+
+
+    //public methods -- Getter and Setter methods
+
+     public void setAge(int v)
+     {
+        if(v>=1 && v<=100) 
+         {
+           age = v;
+          }
+      }
+     public void setName(String v)
+     {
+         if(v==null)
+          {
+           return;
+           }
+         if(v.length()>=5 && v.length()<=50)
+          {
+            name = v;    
+           }
+      }
+
+      public int getAge()
+       {
+          return age;
+        }
+       public String getName()
+       {
+         return name;
+        }
+    
+}
+
+class Test
+{
+   public static void main(String []args)
+    {
+         Person p = new Person();
+         p.setAge(1000); 
+         p.setName("kdsfhkdashfkdas jf klasfjdasfjdasfjjdasj ldsafjdsl flksdfdskfds klafdasfjdsaf"); 
+
+         System.out.println(p.getAge() + " " + p.getName());
+ 
+     }
+}    
+
+
+Initialize the fields
+====================================================================
+
+You can initialize your fields with custom values:
+
+   e.g
+
+    class Person {
+
+        private int age = 1;
+        private String name = "";  //empty string
+         
+        ....
+    }
+
+ Another method to initialize the fields and also write startup code is  "constructor".
+
+ The constructor method
+ -----------------------
+
+  The "constructor" is a very special method of a class that is called
+  automatically just after an object is created.
+
+  => The name of constructor method must be same as its class name
+  => Constructor method should be public.
+
+  e.g
+
+   class Person {
+ 
+       private int age;
+       private String name;
+
+       //constructor
+
+       public Person() {
+          age = 1;
+          name = "";
+       }
+   
+       .....
+       ......
+    }

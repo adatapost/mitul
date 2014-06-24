@@ -1,0 +1,165 @@
+printf function
+==========================================================
+
+ print the formatted output. printf() function has following syntax:
+
+
+      printf("format",optional-arguments);
+
+      In C / C++ / Java, functions have pair of opening and closing       parenthesis ().
+
+      e.g  main(), printf("something,,,") etc
+
+      If there is a value/data in between parenthesis then this value       is called "parameter" or "argument".
+
+      for instance, the printf() function has two argument. First argument must be string and any argument after the first is optional.
+ 
+      If these are two or function parameters then they must be       delimited by the comma (,) operator.
+
+
+      printf's format parameter uses following format characters to       format the data of different datatypes.
+
+         format char		datatype of data
+	   %c			char (Displays ASCII char)
+           %i or %d		char (Displays ASCII number)
+
+          %i or %d              int 
+          %f                    float or double
+          %s                    string
+
+
+Storing data into RAM programatically
+=============================================
+
+In order to store data into RAM, we must have to use datatype along with "data-name" or "variable".
+
+A variable is name of data or data-name through which we can set (store) or get (retrieve) data into/from computer memory (RAM).
+
+
+The name of variable must be valid "identifiers".
+
+   Syntax to declare variable
+   ===========================
+     
+     datatype var_name;
+     datatype var1,var2,var3,...;
+
+     It is important to note that the variable names must be unique      within the function/program.
+
+     For instance,
+
+            int roll,english;  <--- Valid
+            
+        OR
+
+           int roll;
+           int english;         <--- Valid
+
+        But int roll;
+            int roll;  is not valid
+
+    Variable initialization
+    ================================
+    Assign value to the variable at the time of variable creation or     declaration.
+
+         int no = 10;  <-- store 10 data into "no" variable
+
+    Variable assignment
+    ==================================
+    Assign value to the variable after it is created.
+
+         int no;   <--- this is called variable declaration or creation
+         no = 10;  <--- this is called "value assignment"
+
+    
+    Where to declare variables in function?
+    ---------------------------------------
+
+     functionName()
+      {
+          
+           variable declaration
+          ...................
+ 
+           programming statement
+        }
+
+     Each C function logically divided into two section. The first section is called "declaration section" and rest section is for programming statements.
+
+
+Example: store some sort of data
+
+#include <stdio.h>
+
+int main()
+ {
+    int age = 23;
+    float salary = 2000.20;
+    char ch = 'R';
+
+    printf("\n%i",age); 
+    printf("\n%f",salary);
+    printf("\n%c",ch);
+}
+
+In this example, we wish to store some data into RAM and later we want to see the data from RAM.
+
+Example - 2
+
+#include <stdio.h>
+
+int main()
+{
+   char ch;
+
+   printf("\n%c",ch);<--- This program returns unexpected value 			 (Garbage data).
+}
+
+NOTE: Always set appropriate value to the variable before you use it.
+
+
+Example - 3
+
+#include <stdio.h>
+
+int main()
+{
+   char ch = 'A';
+   printf("\n%c   %i",ch,ch);
+}
+     %c format reads value from first 'ch' var and
+     $i format reads value from second and so on. 
+
+     [It means format chars select values on first-come first-serve       basis]
+  
+Example - 4  Prints ASCII char/value
+
+#include <stdio.h>
+
+int main()
+ {
+    char p = 49;
+    printf("\nASCII OF %c IS %i",p,p);
+}
+
+Example - 5
+
+#include <stdio.h>
+
+int main()
+{
+    int no1 = 10, no2 = 20;
+
+    printf("\nSum of %i and %i is %i",no1,no2,no1+no2);
+}
+
+OR
+
+int main()
+{
+    int no1 = 10, no2 = 20, no3;
+    no3 = no1 + no2;
+
+    printf("\nSum of %i and %i is %i",no1,no2,no3);
+}
+  

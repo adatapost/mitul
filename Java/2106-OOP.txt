@@ -1,0 +1,227 @@
+class Student
+{
+  private int roll;
+  private String name;
+  private int eng,sci,maths;
+
+  public void setRoll(int v) { roll=v;}
+  public void setName(String v) { name = v; }
+  public void setEng(int v) { eng = v; }
+  public void setSci(int v) { sci= v; }
+  public void setMaths(int v) { maths = v; }
+
+  public int getRoll() { return roll; }
+  public String getName() { return name; }
+  public int getEng() { return eng; }
+  public int getSci() { return sci; }
+  public int getMaths() { return maths; }
+
+  public int getTotal() { return eng+sci+maths; }
+  public double getPer() { return getTotal()/3.0; }
+ 
+  public String getGrade()
+   {
+     double p = getPer();
+     if(p>=70)
+      {
+        return "A";
+      }
+     if(p>=60)
+      {
+        return "B";
+       }
+     return "C";
+
+   }
+}
+
+class Test
+{
+  public static void main(String []args)
+  {
+      Student s = new Student();
+      s.setRoll(10);
+      s.setName("Raj");
+      s.setEng(66);
+      s.setMaths(88);
+      s.setSci(87);
+
+      System.out.println("Roll    : " + s.getRoll());
+      System.out.println("Name    : " + s.getName());
+      System.out.println("English : " + s.getEng());
+      System.out.println("Maths   : " + s.getMaths());
+      System.out.println("Science : " + s.getSci());
+      System.out.println("Total   : " + s.getTotal());
+      System.out.println("Percent : " + s.getPer());
+      System.out.println("Grade   : " + s.getGrade());
+   }
+}
+
+Method overloading 
+=====================================================================
+In Java, we can use  a common method name to define two or more methods and this technique is called "overloaded methods".
+
+Overloaded methods allow us to define the real-word polymorphism. That means methods having common method name expose different functionality.
+
+To define overloaded methods, we must have to remeber following points:
+
+  1. Methods uses common name 
+  2. Methods parameters must be different
+
+The Java compiler select an overloaded method via value & type of parameters.
+
+Example:
+
+class Example
+{
+   public void print()
+    {
+      System.out.println("No argument");
+     }
+   public void print(int n)
+   {
+     System.out.println("Int argument");
+    }
+   public void print(char n)
+    {
+     System.out.println("Char argument");
+     }
+}
+class Test
+{
+  public static void main(String []args)
+   {
+       Example e=new Example();
+       e.print('R');  //Char argument method will be called
+       e.print();    //No arg method will be called
+       e.print(20);  //int arg 
+       e.print(10.10); //Error - no such definition in class Example
+    }
+}
+
+
+System.out.println(1); //int arg
+System.out.println(1.2); //double arg
+System.out.println(1.2f); //float arg
+System.out.println("a"); //String arg
+System.out.println('1'); //char arg
+
+
+Example:
+
+class Student
+{
+   private int no;
+   private String name;
+
+   //getter & setter 
+
+    public int getNo() { return no;}
+    public String getName() { return name;}
+    public void setNo(int v) { no = v;}
+    public void setName(String v) { name = v;}
+
+   //overload methods
+
+   public void setStudent(int mNo, String mName) {
+       no = mNo;
+       name = mName;
+   }
+   public void setStudent(String mName,int mNo) {
+       no = mNo;
+       name = mName;
+   }
+}
+
+class Test
+{
+  public static void main(String []args)
+   {
+      Student s= new Student();
+      s.setStudent(10,"Raj");
+   
+      //OR
+      Student t= new Student();
+      t.setNo(4);
+      t.setName("Mohan");
+
+       //OR
+       Student u = new Student();
+       u.setStudent("Manish",55);
+
+
+      System.out.println(s.getNo() + " " + s.getName());
+      System.out.println(u.getNo() + " " + u.getName());
+      System.out.println(t.getNo() + " " + t.getName());
+    }
+}
+
+Overloaded constructor
+--------------------------------------------------------------------
+
+class Student 
+{
+    private int no;
+    private String name;
+
+    //constructor
+    public Student()   //No argument constructor
+     {
+        no = 1;
+        name = "N.A";
+     }
+
+    public Student(int mNo, String mName)   //Argument constructor
+    {
+         no = mNo;
+         name = mName;
+    }
+   public Student(String mName,int mNo)   //Argument constructor
+    {
+         no = mNo;
+         name = mName;
+    }
+   public void print() 
+   {
+      System.out.println(no +  " " + name);
+   }
+
+  //as per prev  example
+}
+
+class Test
+{
+  public static void main(String []args)
+    {
+        Student a = new Student(10,"Raj");
+        Student b = new Student("Man",20);
+        Student c=new Student();
+         a.print();
+         b.print();
+         c.print(); 
+    }
+}
+
+Practice: Define constructors, getter/setter and utility methods
+
+1. 
+ class Point 
+  {
+     private int x,y;
+  }
+
+2. 
+class Rect
+{
+   private int x1,y1,x2,y2;
+}
+
+3.
+
+class Product
+{
+   private int id;
+   private String name;
+   private double quantity;
+   private double rate;
+}

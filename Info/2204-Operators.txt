@@ -1,0 +1,298 @@
+Conditional Operator Or Teranary operator
+====================================================================
+ Syntax:
+
+   exp1 ? exp2  : exp3;
+
+
+ If exp1 evalutes true then "exp2" will be executed otherwise "exp3".
+
+Example: Input two numbers and find out which is the largest.
+
+#include <stdio.h>
+
+int main()
+{
+   int no1,no2;
+
+   printf("Enter two nos : ");
+   scanf("%i%i",&no1,&no2);
+
+
+   no1>no2  ? printf("\n%i",no1)  : printf("\n%i",no2);
+}
+  
+
+Example: Or you can assign value of exp2 or exp3 to another variable.
+
+#include <stdio.h>
+
+int main()
+{
+   int no1,no2,max;
+
+   printf("Enter two nos : ");
+   scanf("%i%i",&no1,&no2);
+
+
+   max=no1>no2  ? no1  : no2;
+   printf("\nMax : %i",max);
+}
+  
+Example: Input a number. 
+    Display 'ZERO' if value is 0
+             'Positive' if > 0
+             'Negative' otherwise.
+
+In this example, we will have to use nested conditional operator.
+
+ no==0 ? printf("ZERO") : no>0 ? printf("POSITIVE") : printf("NEG");
+
+Example: Input a char and if given char is lower-alphabet then convert to upper-case.
+
+     upper_case  = lower_case - 32     97 - 32 = 65
+
+#include <stdio.h>
+
+int main()
+{
+   char ch;
+
+   printf("Enter char: ");
+   scanf("%c",&ch);
+
+
+   ch= ch>='a' && ch<='z' ? ch-32 : ch ;
+   printf("\n%c",ch);
+}
+
+Example: Input a char and convert upper-alphabet to lower-alphabet
+
+Example: Input a char to test a given char is an alphabet, or digit or whitespace or special char.
+
+ch>='0' && ch<='9' ? printf("Digit") : (ch>='a' && ch<='z') || (ch>='A' && ch<='Z') ? printf("Alphabet") : ..........
+
+Example: Input three nos. Find out which one is the largest.
+Example: Input three nos. Find out which one is the smallest.
+
+ a>b && a>c ? a : b>a && b>c ? b : c
+
+Conditional statements
+======================================================================
+The conditional statements does the same job as conditional operator but there is a single-statement limitation with conditional operator. With conditional statement you can add more than one statements in "true" or "false" section.
+
+
+In C we've two conditional statements:
+
+   1. if statement 
+   2. switch statement
+
+
+The "if" statement
+---------------------------------
+Syntax - 1  Simple if 
+
+           if(condition)
+            {
+              true section or true body
+            }
+
+
+Syntax - 2  Simple if .. else
+
+           if(condition)
+            {
+              true section or true body
+            }
+           else
+            {
+               false body
+             }
+
+Syntax - 3  if..else if.... Lader if else to examine more than one 		conditions.
+
+           if(condition1)
+            {
+               ....statements
+            }
+           else
+           if(condition2)
+            {
+              statements  
+             }
+           ....
+           ....
+           else
+            {
+               statements
+             }
+
+Syntax - 4  Nested if.  If statement inside the if statement (either in
+            true body or false body).
+
+            if(condition1)
+             {
+                  if(condition2)
+                     {
+                      .....
+                      }
+                   .....
+              }
+
+Example: Input the age and display 'You are voter' if age is above 17, display 'You are minor' otherwise.
+
+#include <stdio.h>
+
+int main()
+{
+  int age;
+  printf("enter the age : ");
+  scanf("%i",&age);
+
+  if(age>17)   /* or if(age>=18) */
+  {
+    printf("\nYou are voter");
+
+   }
+  else
+  {
+   printf("\nYou are minor.");
+  }
+}
+
+Example: Convert lowecase letter to uppercase.
+
+
+ if(ch>='a' && ch<='z')
+  {
+    ch = ch - 32;
+   }
+ printf("\n%c",ch);
+
+NOTE: Do not terminate the if(exp);<--- It is syntax error
+
+Example: Input three number and find the max one.
+
+#include <stdio.h>
+
+int main()
+{
+   int a,b,c;
+
+   printf("Enter three nos  : ");
+   scanf("%d%d%d",&a,&b,&c);
+
+   /* Using nested if statement */
+
+   if( a > b )
+        {
+           if( a > c)
+               {
+                  printf("\n%d",a);
+                }
+           else
+                {
+                  printf("\n%d",c);
+                }
+        }
+   else
+        {
+           if( b > c )
+                {
+                   printf("\n%d",b);
+                 }
+           else
+                 {
+                   printf("\n%d",c);
+                 }
+         }
+}
+ 
+Example: Input marks of five subjects. Calculate total and percent and display "Grade" based upon following criteria:
+
+   Per		Grade
+  70 - 100	A
+  60 - 69	B
+  50 - 59	C
+  otherwise     D
+
+Example: Input marks of five sub. 
+   Display 'ATKT' if student fails (score less than 35 marks) in one or 	    two subjects.
+
+   Display 'FAIL' if student failes in three or more subjects.
+   Display 'PASS' otherwise.
+
+Example: Input day,month and year. Write a program to check whether given date is valid or not.
+
+31 4 2002 - Invalid
+32 1 2002 - Invalid
+
+
+
+#include <stdio.h>
+
+int main()
+{
+    int d,m,y;
+    printf("Enter the day, month and year : ");
+    scanf("%i%i%i",&d,&m,&y);
+
+    if(m==1 || m==3 || m==5
+         || m==7 || m==8 || m==10 || m==12)
+    {
+        if(d>=1 && d<=31)
+        {
+            printf("\nValid Date");
+        }
+        else
+            {
+            printf("\nInvalid Date");
+        }
+    }
+    else
+        if(m == 4 || m==6 || m==9 || m==11)
+    {
+       if(d>=1 && d<=30)
+        {
+            printf("\nValid Date");
+        }
+        else
+            {
+            printf("\nInvalid Date");
+        }
+
+    }
+    else
+        if(m==2)
+    {
+        if(y%4 ==0)
+        {
+          if(d>=1 && d<=29)
+        {
+            printf("\nValid Date");
+        }
+        else
+            {
+            printf("\nInvalid Date");
+        }
+
+        }
+        else
+        {
+       if(d>=1 && d<=28)
+        {
+            printf("\nValid Date");
+        }
+        else
+            {
+            printf("\nInvalid Date");
+        }
+        }
+
+    }
+    else
+    {
+        printf("\nInvalid Date");
+
+    }
+}

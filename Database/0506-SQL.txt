@@ -1,0 +1,122 @@
+Example: Table "Category" (It represent product category. e.g pencil, pen etc) has "Product" child table.
+
+
+>create table category
+(
+   category_id number(3) primary key,
+   category_name varchar2(20)
+);
+
+>create table product
+(
+  product_id number(3) primary key,
+  category_id number(3),
+  product_name varchar2(30),
+  product_rate number(15,2),
+  product_unit varchar2(10),
+  foreign key (category_id) references category(category_id)
+);
+
+
+>insert into category values (1,'Pen');
+>insert into category values (2,'Pencil');
+>insert into product values (1,1,'Rotomac',5.5,'Nog');
+                               ^
+                               |--- Pen category id
+
+
+
+Create SQL script file and execute SQL statements
+------------------------------------------------------------------
+
+You can create SQL script file in which you can store SQL statements.
+
+>ed filename  
+
+   This command creates/opens a file using notepad and type SQL    statements in it.
+
+To execute SQL statement from the file
+
+>@filename
+
+Example:
+
+>ed c:\mitul\sample  (Press enter)
+
+  sample.sql
+  -----------
+  select * from dept;
+  select * from emp;
+  
+   [save & Close]
+
+>@c:\mitul\sample     (Press enter)
+
+
+Fetch rows from two or more tables based upon the value of same datatype and same size columns of different tables
+===================================================================
+
+ Syntax:
+
+   SELECT Table1.Column1, Table2.Column1,...
+            FROM Table1, Table2
+              WHERE Table1.Column1 = Table2.Column2;
+
+
+OR use table alias (second name of table)
+
+  SELECT a.Column1, b.Column1,....
+             FROM Table1 a, Table2 b
+                 WHERE a.Column1 = b.Column2;
+
+       [Note: a and b are aliases of table "Table1" and "Table2"               respectively.]
+             
+
+
+List Dept name , location and employee name from Dept and emp table.
+
+>select dept.deptname,dept.location,emp.ename
+          from dept,emp
+             where dept.deptno = emp.deptno;
+
+Or
+
+>select a.deptname,a.location,b.ename
+          from dept a,emp b
+             where a.deptno = b.deptno;
+
+List Category name, product name, rate and unit.
+
+>select a.category_name, 
+        b.product_name,
+        b.product_rate,
+        b.product_unit
+          FROM category a,
+               product b
+             WHERE a.category_id = b.category_id;
+
+Retreving rows from two or more tables is known as "JOINS". Most probably primary and foreign key columns are used by the JOINs.
+
+
+Nested Query
+------------------------------------------------------------
+The SQL statement inside another SQL statement is called "Nested" query.
+
+
+  Syntax:
+
+   SELECT xxxxxx FROM table 
+                   WHERE expression ( SELECT xxxxx FROM table ....);
+
+   The inner most query will be executed first and based upon the value of inner most query the outer query will be executed.
+
+Example:
+
+ Display all employees whose location is "Meh"
+ >select * from emp
+       where deptno in (select deptno from dept where location='MEH');
+ 
+Display all emps whose location is not 'Meh'
+  >select * from emp
+       where 
+        deptno not in (select deptno from dept where location='MEH');

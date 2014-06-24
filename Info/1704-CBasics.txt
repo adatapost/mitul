@@ -1,0 +1,122 @@
+First C Program
+----------------------------------------
+
+>notepad sample.c   [ C source file must have .c or .h extension]
+
+#include <stdio.h>  
+
+int main()
+{             <------ C program begins here
+   printf("This is my first C program.");  
+}             <------ C program ends here
+
+
+# (hash) sign -- C statement begins with # sign are called "pre-processors" or "compiler-directives". They are instructions for the C compiler.
+
+stdio.h is pronounce as standard input output header file. This file consists the syntax rules for more than 50 input-output functions. In C language, header file is just like a group name of similar purpose functions.
+
+For instance, the math.h header file contains syntax of maths functions - abs, pow, sin, pi etc.
+
+Now, compile the sample.c program,
+>gcc sample.c 
+
+   The "gcc.exe" is c compiler which produce executable named "a.exe"    from sample.c source program.
+
+To run or execute the program,
+
+
+>a  + press enter
+
+
+Backslash characters or Escape Sequence Characters
+===================================================================
+Backslash chars are instructions for computer hardware. These characters are forms with leading \ (backslash) char.
+
+ Backslash		meaning
+ ------------------------------
+  \n			To add new line. It force the device to creates
+			new line and set cursor at begin of new line.
+
+
+		 
+Ex:
+#include <stdio.h>
+
+main()
+{
+  printf("Hello, \n");
+  printf("\nMy name is\n\n\n Mitul.");
+  printf("\nI'm at home.");
+}
+
+
+Ex:
+
+
+#include <stdio.h>
+
+main()
+{
+   printf("\n|--------------------------|");
+   printf("\n| No  | Name               |");
+   printf("\n|-----|--------------------|");
+   printf("\n| 1   | Rajesh             |");
+   printf("\n|-----|--------------------|");
+   
+}
+
+   \t		 Tab key (advances 8 space)
+  -----------------------------------------
+
+  Ex:
+
+    #include <stdio.h>
+    main() 
+     {
+       printf("\nNo\tName\t\tAge");
+       printf("\n9\tRaj\t\t20");
+      }
+
+    \\ 	         Escape (cancel) the backslash char
+   -------------------------------------------
+
+#include <stdio.h>
+
+main()
+{
+     printf("c:\tata\new folder");
+     printf("c:\\tata\\new folder");
+}
+ 
+\"             Escape the double quote
+-----------------------------
+#include <stdio.h>
+
+main()
+{
+     printf("The \"red\" sun");
+ }
+
+\b           Backspace (moves cursor one position back)
+---------------------------------------------------
+#include <stdio.h>
+
+main()
+{
+    printf("\nHello\b\b\bW");
+}
+
+\r        Carriage return or enter key
+--------------------------------------------
+This backslash issue enter key programatically. On device, the cursor will be set at the beginning of current line.
+  
+#include <stdio.h>
+
+main()
+{
+    printf("\nHello\rW");
+}
+
+\a         Beep or audible bell
+-------------------------------
+  printf("\a\a\aHello");  Three times beep and prints "Hello"

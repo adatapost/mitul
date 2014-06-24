@@ -1,0 +1,289 @@
+Database
+====================================================================
+
+  "The database is collection of records (or related data)".
+
+  For instance, collection or set of "student" data, "classroom",   "teacher","timetable" and so on.
+
+
+Database Management System
+--------------------------
+
+   Database Management System is a "software" which allow us to:
+
+     1. Define structure to represent data
+     2. Store data
+     3. Remove data
+     4. Update/edit data
+     5. Filter data
+     6. Sort (arrange) data
+     7. Grouping of data and so on
+
+   There are number of DBMS (Database Management System) software:
+ 
+         1. Oracle10g, Oracle 11g, Oracle12i (10g, 11g and 12i are              different version/edition of oracle DBMS) from Oracle              Corp, USA.
+
+         2. MSSQL - Microsoft Sql Server from Microsoft Corp,USA.
+
+         3. MySql  - MySql from Oracle Corp.
+      
+         4. Db2    - From IBM
+
+             and many more.
+
+    All these products (DBMS software) uses common set of commands     called "Structure Query Language" to operate the DBMS. So once
+    we learn the SQL - Structure Query Language then we can work with     any database product.
+
+
+
+
+User/Developer =====> Uses SQL statements
+                      to operate DBMS
+                            ||
+    --------------------------------------------
+    |              |         |        |        |
+  Oracle          MSSQL     MySql    Db2    other DBMS products...
+  (Any version)
+     
+
+
+ Column, Record and Relation (Table)
+ ===========================================
+
+     EmpId (Number), EmpName (String), BasicSalary (Number) and      JoinDate (Date) are called columns or  fields or data-members.
+
+     Columns/Fields must be unique and ordered or un-ordered.
+  |-----------------------------------------|
+  |EmpID | EmpName | BasicSalary | JoinDate |
+  |-----------------------------------------|
+  | 10   | Rajesh  | 30000       | 10-JAN-14| <---- Record or row
+  | 20   | Manish  | 40000       | 12-FEB-10| <---- Record or row
+  ...........                                      (Or Tuple)
+
+
+  Row - Row is collection of data as per structure of relation/table.
+
+  Relation/Table -- A table is collection of unique columns. The "table" is the prime/major element of database.
+
+Oracle User/Schema Management
+=============================================
+
+In order to work with Oracle DBMS, one must have a "user-account (It is also called SCHEMA).
+
+User account is the first security step to protect the work from other users/schemas.
+
+When we install the oracle DBMS, a user named "sys" will be created automatically (whose password is set/given at the time of installation).
+
+The SYS/(your_password) user account has all the previleges to create new users, remove existing users, manage other system/low-level activities, grant or revoke permissions/previleges and so on. That's why "SYS" user is called "Database Administrator - DBA".
+
+
+Create a user/schema
+=====================
+
+1. Run SQL commad prompt
+2. sql>connect system  + Enter   OR   sql>connect sys/password + enter
+       password: xxxxx + Enter
+
+   SQL Command Prompt (SQLPLUS) is a SQL command interpreter which verifies SQL statement syntax and if it is correct then pass it to ORACLE DBMS for the execution.
+
+
+  OR
+
+   sql>connect / as SYSDBA    + Enter (No need to specify the password)
+
+
+3. Now, create a new-user account using following SQL statement
+
+     Syntax:
+
+        create user  <<user_name>> identified by <<password>>;
+
+     SQL Statement must ends (terminate) by semi-colon.
+
+    sql>create user mitul identified by mitul;
+
+
+   +------------------ To Drop a use ---------------------+
+      1. Logon with SYS or SYSTEM user
+      2. sql>Drop user <<username>>;
+   
+4. Now, grant some permissions (previleges) to the newly created user
+
+   sql>grant connect,resource to mitul;
+
+      connect - permission allows user to establish a 		connection/session with database.
+      resource - permission allows user that she/he can                  create/drop/alter tables, insert/delete/update/select                  records etc.
+
+
+Datatypes to define the relation (table)
+=====================================================================
+
+We can use following oracle datatypes to define the structure of the "table".
+
+  Name		Description
+
+1. char(n)	Fixed length string to represent ASCII characters.
+2. nchar(n)     Fixed length string to represent unicode (Universal                 Text format - UTF) characters.
+
+                Unicode is text encoding scheme through which we can
+                store chars of different languages including English,
+		Hindi, Gujarati, and so on.
+3. varchar2(n)  Variable length string to represent ASCII chars
+4. nvarchar2(n) Variable length string to represent unicode chars.
+5. date         To represent date, or datetime
+6. number(n)
+   number(scale,precision) - To represent numeric value.
+
+
+Fixed length string :  char(5) will allocate 5 bytes with space.
+                       So default value will be : "     " (5 blanks)
+                       If 'A' is stored then value will be : "A    "
+
+Variable length string : varchar2(5) will allocate 0 byte. When you add
+                         chars then size of varchar2 will be allocate.
+
+                         "A" -- 1 byte
+                         "AB"   2 bytes
+                       
+SQL Statements  : SQL statements are case-insensitive. That means
+===============   you can use upper or lower or mixed case to form
+                  the SQL statement.
+
+1. Create (or define) a table (relation)
+
+  General Syntax:
+
+  CREATE TABLE   <<your_table_name>>
+  (
+    field1   datatype(size)  constraints,
+    field2   datatype(size)  constraints,
+    field3   datatype(size)  constraints,
+    ........
+   );
+
+ Note: Each identifier, keyword or expression must be delimited by one or more whitespace (space, enter, tab etc).
+
+ Datatype(size) describes the type of data you want to store in that                 particualr field.
+
+ Constraints describes whether a field :
+
+             => can be empty or not?
+             => can hold duplicate value or not?
+             => can refer or use value from another relation(table).                 ie. can point to another table for reference record(s).
+             => can use default (initial) value or not?
+                
+
+
+2. SELECT * FROM TAB; - To list the tables
+
+SQL>SELECT * FROM TAB;
+
+SQL>create table employee
+(
+  emp_no number(3),
+  emp_name varchar2(30),
+  emp_join_date date
+);
+
+Note: Use ; (semi-colon) to confirm the command
+          . (period) to cancel the command
+
+
+3. DESC <<table_name>>  Display the structure of table.
+
+SQL>desc employee;
+
+
+4. INSERT statement - To insert row/record into a table.
+
+
+  Syntax-1:
+
+    INSERT INTO <<tableName>> VALUES (value1,value2,....);
+
+    In above syntax, value1 belongs to first field/column
+                     value2 belongs to second and so on
+
+  Syntax - 2
+
+   INSERT INTO <<tableName>> (column1, column2, ...)
+                 VALUES (value1,value2,...)
+
+
+  
+   value literal 
+   ---------------
+     Numeric literal includes +/- (sign), digits and decimal char (.).
+
+     String or Date literal must enclosed with single quotes.
+
+Example:
+
+SQL>insert into employee values (1,'Rajesh Shah','10-JAN-2012');
+SQL>insert into employee (emp_name,emp_no,emp_join_date)
+           values ('Manish Patel',2,'2-JAN-2003');
+
+NOTE: Date literal format must be dd-MMM-yy
+
+
+5. SELECT statement - To list rows from the table.
+
+
+   Syntax:
+
+      SELECT * FROM <<tableName>>; 
+ 
+             Where * means all columns
+
+      SELECT column1,column2,... FROM <<tableName>>
+
+
+Practice:
+
+ Exclude some column(s) while inserting a record.
+
+   SQL>insert into employee (emp_no) values (10);
+      
+        In above query (SQL Statement), emp_name and emp_join_date are
+        empty. In oracle empty field is denoted by the NULL or null.
+
+   INSERT name and date,
+
+   SQL>insert into employee (emp_name, emp_join_date)
+           values ('Rahul','10-OCT-2010');
+
+   SQL> Select * from employee;
+    
+            
+
+Create a table with constraints
+===================================================================
+
+We will use "Primary key" and "Not null" constraints.
+
+   The "Primary key" rule/constraints prevents duplicate data and also
+   null.
+
+   The "Not null" constraints prevents empty field.
+
+>create table student
+(
+  roll number(3) primary key,
+  name varchar2(30) not null,
+  birth_date date not null
+);
+
+>insert into student values (1,'Raj','2-JAN-14');  <=valid  
+>insert into student values (1,'Mohan','2-DEC-2012'); <= Shows an error because value 1 is already exist into "roll" field and it violates primary key (PK) constraints.
+
+>insert into student (name,birth_date) values ('Kamal','10-JAN-2010');
+   Will throws an error because "roll" field cannot contains null. The roll field must contains unique value.
+
+   
+6. DROP (DELETE) a table
+
+  Syntax:  DROP TABLE <<tableName>>;  Remove table and all data            physically.
+
+  sql>drop table employee;
+     >select * from tab;
+

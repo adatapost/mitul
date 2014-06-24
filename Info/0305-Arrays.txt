@@ -1,0 +1,221 @@
+Arrays (Tables)
+===================================================================
+
+Array is a variable which can store one or more value. In other words, an array is  the group of contigious bytes to store data of same datatype and same size.
+
+ Syntax:
+
+     datatype  varName[size];
+
+
+      Where, 
+
+             1. varName must be valid identifiers
+             2. [ ] operator is known as "subscript" operator.
+             3. size must be positive integer literal whose value must
+		be greater than 0. Size is also called the subscript 		value.
+
+
+Example: Create an array and determine the size of array (in bytes).
+
+We will use "sizeof" keyword to determine the size of any datatype.
+
+
+#include <stdio.h>
+
+int main()
+{
+  int nos[4]; /* The OS will allocate  16 bytes ( 4 bytes * 4 int ) */
+
+  printf("\n%i", sizeof(nos)); /* print 16*/
+  printf("\n%i", sizeof(int)); /* prints 4 */
+  printf("\n%i",sizeof(double)); /* prints 8 */
+}
+
+the 'sizeof' keyword returns amount of bytes used by variable or datatype.
+
+  
+Example: Creates an array and set/get data.
+
+#include <stdio.h>
+
+int main()
+{
+   int nos[3];  /* It creates three ints = 12 bytes */
+
+   nos[0] = 100;
+   nos[2] = 90;
+   nos[1] = nos[0] - nos[2];
+
+   printf("\n%i    %i    %i",nos[0], nos[1], nos[2]);
+} 
+
+ 
+Array initialization
+---------------------------------------------------------
+
+ Syntax:
+ 
+   datatype varName[size] = {value1,value2,...};
+
+Ex:
+
+int main()
+{
+    int nos[5]={0};
+
+    printf("\n%i %i %i  %i  %i",nos[0],nos[1],nos[2],nos[3],nos[4]);
+}
+Ex:
+int main()
+{
+    int nos[5]={90,40};
+
+    printf("\n%i %i %i  %i  %i",nos[0],nos[1],nos[2],nos[3],nos[4]);
+}
+
+
+Traverse/Iterate arrays
+---------------------------------------------------------------------
+You can use loop statement to iterate array elements. Array element is a data/value stored into an array.
+
+#include <stdio.h>
+
+int main()
+{
+   int days[12]={31,28,31,30,31,30,31,31,30,31,30,31};
+   int i;
+
+   for(i=0;i<12;i++)
+   {
+     printf("\n%i", days[i] );
+    }
+}
+
+
+Example: Input five double/float values into an array and print them.
+
+#include <stdio.h>
+
+
+int main()
+{
+
+  float items[5];
+  int i;
+  float sum = 0;
+
+  /* Input five value */
+
+  for(i = 0; i<5 ; i++)
+  {
+     printf("Enter the value : ");
+     scanf("%f", &items[i] );
+   }
+
+  /* Print five value */
+
+  for(i = 0; i<5 ; i++)
+   {
+      printf("\n%f",items[i]);
+      sum = sum + items[i];
+    }
+
+  printf("\nSum : %f",sum);
+  printf("\nAvg : %f",sum/5);
+
+}
+
+
+Example: Input a number and check whether it is exist in following values.
+
+  {10,2,33,4,55,66,77}
+
+[This example describes how to search an element from the array]
+
+#include <stdio.h>
+
+int main()
+{
+   int values[7] = {10,2,33,4,55,66,77};
+   int no;
+   int isFound = 0; /* status / flag var */
+   int i;
+
+   printf("Enter the search no : ");
+   scanf("%d",&no);
+
+   for(i=0;i<7;i++)
+   {
+     if(no == values[i])
+      {
+          isFound = 1;
+          break;
+       }
+    }
+
+
+   if(isFound)  /* if(isFound == 1) */
+    {
+      printf("\n%d is found at %d",no,i);
+     }
+   else
+     {
+       printf("\nElement not found");
+     }
+}
+
+Example: Write a program to reverse the array elements.
+
+ e.g
+ 
+        0   1   2   3   4
+   
+        33  77  10  40  90 
+
+
+Output  90  40  10  77 33
+
+Example: Swap two (pair) element of 10 size int array.
+
+Example: Find max and min element from an array
+
+Example: Sort array element (ascending or descending)
+
+
+0   33
+1   2
+2   55
+3   7
+4   -20
+
+
+0   2
+1   33
+2   55
+3   7
+4   -20
+
+0   -20
+1   33
+2   55
+3   7
+4   2
+
+0  -20
+1   2
+2   55
+3   33
+4   7
+
+0  -20
+1   2
+2   7
+3   55
+4   33
+
+0  -20
+1   2
+2   7
+3   33
+4   55

@@ -1,0 +1,38 @@
+CLI - Command Line Interface of windows OS 
+==============================================
+You can operate the Win OS using Graphical User-Interface (GUI) or CLI.
+
+CLI uses following commands for file system [ Commands for file and directories]
+-------------------------------------------------------------------
+
+1. cd   - change directory
+
+    cd  "where--location of another folder"
+
+ 
+> cd\   - To open the root directory.
+
+         c:\folder\file.ext
+           ^
+           |
+          Root directory -- There must be one and only one root           directory per partitiion.
+
+                         -- Under the root, there may be one or more
+			    sub-directories and files.
+
+          [Note: Never work at "root" and OS HOME (c:\Windows)]
+
+2. dir  -- to list files and folders
+
+   dir/p - list with pause.
+   
+3. md "new-directory"  - To create a new directory
+4. cd "existing-dir"   - To change directory
+5. rd "existing-dir"   - To remove directory (rd removes empty 			 directory)
+6. cd..                - To come out from the current directory and 			 open its parent directory.
+
+7. del file_name       - Deletes an exisiting file
+
+8. ren old-name new-name -- Rename the file or folder
+
+9. copy existing-file  new-filename -- Creates a copy of existing file.

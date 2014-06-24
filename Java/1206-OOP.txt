@@ -1,0 +1,179 @@
+Object Oriented Paradigm/Methodology
+=====================================================================
+
+ What is OOP?
+ 
+    It is a technique to design a program so we can easily debug,     understand, re-use and maintain the code/program.
+
+
+    "OOP is a program design technique for the developers".
+
+    There are two most commonly used program design techniques (standard techniques) are :
+
+       1. Procedure Oriented Paradigm/programming -- The "function" or 
+          "procedure" is the prime element of this design. 
+
+           C language or low-level languages support this approach.
+
+       2. Object Oriented Paradigm/programming -- The "object" or          "data" is the prime element of this design. In this design, we          have to define data-structure and functions that operate on             data. That means functions are called with the help of data. If we    have radius, x and y data then we can call "draw" function.
+
+   
+ What are the major roles of OOP in program design?
+ ==================================================
+
+  We, the developers, must have to write a code that can be :
+
+    1. Re-use 
+    2. Testable (we can debug/examine code for any abnormal behavior)
+    3. Extendability -- A code has ability to create a new code from
+		        existing code with additional features                         (data & functions).
+
+  The OOP program design depends upon the following terms:
+
+    1. Encapsulation -- To create a single unit or datatype that                         contains data & functions/methods.
+
+                        It means wrapping of data and method is called
+			encapsulation.
+
+                        In Java, we will use "class","interface", 			"enum" keywords to implements "Encapsulation".
+
+   2. Abstraction   -- With this feature we can draw outline between                        the creator (developer of code) and user (user                        of code).
+
+                        In other words, we can hide or show some of the
+			members of our class/datatype.
+
+                        Using this technique, a developer can decide what action/function he/she can made available publicly and what actions/functions he/she hide from users.
+
+   3. Polymorphism -- Meaning of "polymorphism" is "common name and                       multiple forms".
+
+                      For example,
+
+                        To "wash" a car 
+                        To "wash" clothes 
+
+                          here, "wash" is a name but it has two                           different forms (actions). 
+
+
+What is an Object?
+=====================================================================
+
+ In general, it is a thing, or substance. Anything exists in the universe is called an "object". In other words, a thing that occupies space is called an "object".
+
+   e.g  table, mouse, keyboard, apple, football etc.
+
+ In programming environment, it is collection of allocated bytes. In order to store data into memory, we must have to allocate memory and that allocated memory area is known as "object".
+
+  Some of the objects are simple and they are allocated/created by the Java & Operating system whereas some of the objects are complex and in that we have to instruct the Java & OS to allocate bytes/memory.
+
+  e.g
+
+     int n;  <--- Java & OS will allocate "4 bytes" (ie. object of 4 			bytes) implicitly.
+
+    Java's primitive types (byte,char,short,int,long,float,double,     boolean) are simple types and they are allocated automatically. 
+
+ Other than primitive types in Java, we must have to use "new" keyword  to instruct the Java & OS to allocate bytes explicitly. It means we will create objects of non-primitive types using "new" keyword.
+
+
+The Class/DataType
+----------------------
+
+ The class/datatype describes the data/object. The class is a result of "Encapsulation". The class defines data and functions which are  operate on the data.
+
+ In other words, a class is an identity of an object.
+        
+            e.g  data =>   10/01/2002     10           20.20    false
+                 class=>    Date         Integer       Double  Boolean
+
+                 
+ The "class" keyword
+ -------------------
+
+ We will use "class" keyword to define our own datatype/class/type.
+
+ General syntax:
+
+   class ClassName 
+   {
+      data members;
+      methods_or_functions;
+   }
+
+   [Note: use Java's standard naming conventions
+           =>Use "PascalCase" for type name
+           =>Use "camelCase" for data-members/field , local              variable, and methods]
+
+ The object and reference variable
+ ---------------------------------
+
+  Reference variable : It is a variable declared as,
+
+          ClassName var1,var2,....;
+
+   and the reference variable can store memory reference of an object    (allocated memory region or heap).
+
+   You can assign null to indicate that the object is missing or not    exists.
+
+
+  To create an object : Use "new" keyword to create an object.
+
+         ClassName var1 = new ClassName();
+
+     OR
+
+         ClassName var1;
+         ....
+         ....
+         var1 = new ClassName();
+
+      The "new" keyword instructs the Java's memory manager to allocate
+      memory for data-members and methods defined in given "ClassName"
+      class and returns memory address if allocation success. It returns null (throws an error) if allocation fails.
+   
+
+       [Note: The size of reference variable is 4 bytes]
+
+          
+
+  Member access operator . (dot)
+  -----------------------------------------------------------------
+  Once you;ve allocated memory (i.e create an object), you can use period/dot operator to set (store) or get (retrieve) data into/from an object via reference variable.
+
+     syntax:
+
+          ClassName v = new ClassName();
+          v.someData = someValue;  //store
+          System.out.println(v.someData); //retrieve 
+
+         
+  How Java's memory manager works?
+  --------------------------------
+
+   Java has automatically memory management. Java's memory manager    allocate and deallocate (release) memory automatically. 
+
+
+   When we launch a Java program, Java's memory manager allocate 1 MB memory to create local variables, function argument, return type of function and function/method calls. This 1 MB memory is known as "Stack Frame Memory".
+
+   If you wish to store huge amount of data which are not accomodate into "1MB" stack memory then we must have to request the Java's memory manager for more memory via "new" keyword. The memory allocated via "new" keyword is called an "object" or "heap".
+
+ Java's memory manager service named "Garbage Collector" is responsible to release the unreferenced objects/heap so we do not have to write code to release the object/heap (As in C lang, we must have call "free()" function). 
+  
+ 
+ Default/Initial value of variables
+ ---------------------
+    Local variables :  Local variable don't have any value at all when
+			they are created.
+
+    Field/data-member : 
+        1. byte,short,int,float,double,long are initialized with 0.
+        2. char is initialized with '\0' -- char null
+        3. boolean is initialized with false
+        4. Reference variable is initialized with null
+
+
+          When we create an object, above mentioned value will be the
+          default value of fields of class.
+        
+                       
+
+
+ 

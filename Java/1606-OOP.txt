@@ -1,0 +1,245 @@
+Example:
+
+class Date
+{
+   //data-member or fields or instance variable
+   int d,m,y;
+}
+
+class Test
+{
+   public static void main(String []args)
+    {
+      //We want to store two date values so we will create two
+      //Date objects
+       Date a = new Date();
+       Date b = new Date();
+ 
+       a.d = -1; a.m = 12; a.y=1992;
+       b.d = 2; b.m =4;  b.y=2012;
+
+       System.out.printf("\n%d-%d-%d",a.d,a.m,a.y);
+       System.out.printf("\n%d-%d-%d",b.d,b.m,b.y);
+      }
+}
+
+
+Example: Program demonstrate the use of fields and methods.
+
+
+class MyNumber
+{
+   //field
+   int no;
+
+   //method
+   boolean isOdd()
+    { 
+        return no%2!=0;
+     }
+   int square() 
+    {
+        return no*no;
+    }
+}
+class Test
+{
+  public static void main(String []args)
+   {
+     MyNumber a=new MyNumber();
+     a.no = 7;
+ 
+     //call the methods
+
+     if(a.isOdd()) 
+      {
+          System.out.println("It is odd");
+       }
+     else
+       {
+           System.out.println("It is even");
+       }
+
+      int s = a.square(); 
+      System.out.println(s); //49
+
+     }//end of main
+}//end of class Test
+   }
+}
+   
+
+Example: add cube() and isPrime() methods in MyNumber class.
+
+class MyNumber
+{
+   .......
+   .......
+    
+   int cube() { return no*no*no; }
+   boolean isPrime() 
+   {
+      for(int i=2;i<=no/2;i++) 
+       {
+         if(no%i==0)
+          {
+            return false;
+          }
+
+        }
+      return true;
+    }
+}
+class Test
+{
+  public static void main(String []args)
+   {
+     MyNumber a=new MyNumber();
+     a.no = 7;
+
+      System.out.println(a.isPrime());
+      System.out.println(a.cube());
+
+       if(a.isPrime()) {
+          System.out.println("Prime");
+       } else {
+          System.out.println("Not Prime");
+       }
+
+     }//end of main
+}//end of class Test
+    
+
+Example: add "reverse()" and "sumOfDigits()" methods into MyNumber class.
+
+class MyNumber
+{
+  ......
+  ......
+  ......
+
+  int reverse() {
+       int dummy = no;
+       int rev = 0;
+       int r = 0;
+
+       while(dummy > 0) {
+          r = dummy % 10;
+          rev = rev * 10 + r;
+          dummy = dummy / 10;
+       }
+
+       return rev;
+   }
+  int sumOfDigits() {
+       int dummy = no;
+       int sum = 0;
+       while(dummy > 0) {
+          sum = sum + dummy %10;
+          dummy = dummy/10;
+       }
+       return sum;
+   }
+}//end of MyNumber 
+
+class Test
+{
+  public static void main(String []args)
+   {
+     MyNumber a=new MyNumber();
+    
+ a.no = 7362;
+
+     System.out.println(a.reverse());
+     System.out.println(a.sumOfDigits());
+ 
+     }//end of main
+}//end of class Test
+    
+
+Example: Date class and methods
+
+class Date {
+   int d,m,y;  //fields
+
+   //methods
+
+   boolean isLeap() {
+      return y%4==0;
+   }
+
+   boolean isValidMonth() {
+      return m>=1 && m<=12;
+   }
+   
+}
+
+class Test {
+  public static void main(String []args) {
+     //Date object
+     Date a = new Date();
+     a.d=2; a.m=4; a.y=2010;
+
+     if(a.isLeap()) {
+         System.out.println("Leap year");
+      } else {
+         System.out.println("Not leap year.");
+      }
+    
+    if(a.isValidMonth()) {
+        System.out.println("Valid month"); 
+    } else {
+        System.out.println("Invalid month");
+    }
+ }//end of main
+}//end of class Test   
+
+
+Example: add "isValidDay()" method in Date class.
+
+class Date {
+   .......
+   .......
+   boolean isValidDay() {
+      if(!isValidMonth()) {
+        return false;
+      }
+      switch(m) {
+          case 1:
+          case 3:
+          case 5:
+          case 7:
+          case 8:
+          case 10:
+          case 12:
+                    return d>=1 && d<=31;
+           case 4:
+           case 6:
+           case 9:
+           case 11:
+                    return d>=1 && d<=30;
+           case 2:
+                    if(isLeap())  {
+                       return d>=1 && d<=29;
+                    } else {
+                       return d>=1 && d<=28;
+                    }
+          }//end of switch
+
+          return false;
+      }
+}
+
+class Test {
+  public static void main(String []args) {
+     //Date object
+     Date a = new Date();
+     a.d=29; a.m=2; a.y=2012;
+     if(a.isValidDay()) {
+          System.out.println("Valid");
+     } else {
+         System.out.println("Invalid");
+     }
+ }//end of main
+}//end of class Test 
+

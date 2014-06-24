@@ -1,0 +1,167 @@
+Function that returns a value
+======================================================================
+
+A "called function" returns a "value" to the "calling function"; it is technique to send data from called to calling function.
+
+With arguments, we can send data from calling to called function. You can pass one or more data to the called function via arguments or parameter technique.
+
+In general, a function can have unlimited arguments but it returns single value.
+
+
+For instance,
+
+#include <stdio.g>
+
+int fun1(void);      /* Return int data */
+double func2(void);  /* returns double value */
+
+
+int fun1(void)
+{
+  return 10;    /* return is a keyword which throws a value and also
+		   terminates (stops) the function execution. */
+
+ }
+
+double func2(void)
+{
+  return 10.20;
+}
+
+int main()
+{
+   int a;
+   double b; 
+  
+  /* call a fun1() and receive thrown value */
+   a = fun1(); /* value 10 is assigned to variable 'a' */
+ 
+  /* call a func2() */
+    b= func2();
+
+   printf("\n%i %lf",a,b);
+} 
+
+
+Example: function "square" receive a number and returns a sqaure of it.
+
+int square(int no);
+
+int square(int no)
+{
+  return no*no;
+}
+
+int main()
+{
+  int a,b;
+
+  a = square(5);
+  printf("\n%i",a); /* 25 */
+
+  
+  printf("Enter the no : ");
+  scanf("%i",&b);
+  a= square(b);
+  printf("\nSquare of %i is %i",b,a);
+}
+
+Example:
+
+int add(int no1,int no2);
+int max(int no1,int no2);
+int min(int no1,int no2);
+
+Example: Pass a char and returns 1 if given char is alpha, return 0 otherwise to isAlpha() function.
+
+
+int isAlpha(char ch);  /* returns boolean - true or false */
+
+
+int isAlpha(char ch)
+{
+  if(ch>='a' && ch<='z' || ch>='A' && ch<='Z')
+   {
+     return 1;
+    }
+  return 0;
+}
+
+int main()
+{
+   char ch;
+   printf("Enter the char : ");
+   scanf("%c",&ch);
+ 
+   if(isAlpha(ch))
+    {
+       printf("\nAlpha");
+     }
+   else
+    {
+       printf("\nNot Alpha");
+     }
+}
+
+Example:
+
+int isDigit(char ch);
+int isOdd(int no);
+int isSpace(char ch);
+int isPrime(int no);
+
+
+Passing arrays as function argument
+======================================================================
+
+ General syntax:
+
+   return_type functionName(datatype arrayVar[]);
+
+ Do not specify the size of array to the array argument declaration.
+
+
+It is important to note that a function cannot returns an array because array has more than one value and function can returns only one value.
+
+
+Example: sum() function receives a float array and returns sum of all elements.
+
+
+#include <stdio.h>
+
+float sum(float nos[], int size);
+
+float sum(float nos[], int size)
+{
+    float msum = 0;
+    int i;
+
+    for(i=0;i<size;i++)
+     {
+       msum = msum + nos[i];
+      }
+
+    return msum;
+}
+
+int main()
+{
+   float ar[3] = {33,44,5};
+   float result;
+
+   result = sum(ar,3); /* while calling the function, do not add
+                          subscript operator*/
+   printf("\n%f",result);
+
+
+} 
+  
+Example:
+
+int max(int nos[], int size);
+int min(int nos[], int size);
+void sort(int nos[], int size);
+
+
+ 
+

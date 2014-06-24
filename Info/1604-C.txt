@@ -1,0 +1,95 @@
+   The OS uses binary number system to represent data. The OS and programming languages has ability to transform human number systems to binary and vice-versa.
+
+    Following are commonly used number system by the human-user:
+      1. decimal -- base of 10
+      2. octal   -- base of 8
+      3. hexa decimal - base of 16
+
+
+      Octal Number System
+      -------------------
+	Decimal		Octal         
+	0		0
+	1		1
+	2		2	
+	3		3
+	4		4
+	5		5
+	6		6
+	7		7
+	8		10 
+
+  8 | 8     Remainder
+  --|----   
+  8 | 1       0
+  --|----     1  ^
+                 |
+
+        Hexa decimal number
+       --------------------
+	Decimal		Hexa
+	0		0
+        ....
+	9		9
+	10		A or a
+	11		B or b
+	12		C or c
+ 	13 		D or d
+	14 		E or e
+	15		F or f
+
+
+
+C Program Structure
+===================================================================
+
+C Language is general purpose programming language. You can use C languae to develop web site, database oriented task, networking applications, low-level service applications, utilities apps and games. In fact C is just like a plain-paper and you're an artist - Draw anything you like.
+
+C language is developed by itself.
+
+About of C language:
+
+    1. C Language is case-sensitive language. Upper case and lower       case names are significant.
+
+    2. C Language source program file should have .c or .h extension.
+       (.c stands for 'see' and .h for 'header' file).
+
+    3. C Language object program has .exe extension in Window OS and
+			             .out or no-extension in other OS.
+
+    4. Each C Program must have one and only one main() function. The        main() is start-point of application. The OS will launch your 	program by calling "main()" function.
+
+
+       What is a "function"? The word 'function' means a small and             independent C program.
+
+
+C Program
+=========
+
+_____________________________
+first section -- To include 
+		 header files
+_______________________________
+int main()
+ {
+                  <== main() function - second section
+ }
+________________________________
+Third section - To define user defined functions
+
+
+A C program file is composed of three logical sections:
+
+ 1. File inclusion section 
+    This section helps the C compiler to compare the syntax of C     statements and functions.
+
+ 2. main() function -- It is also called entry-point of your app.
+
+ 3. You can define user-defined functions/programs after or before the     main() function.
+
+           
+    5. Each C programming statement should ends with semi-colon. It means C statement is terminated with the ; (semi-colon).
+
+       e.g  
+
+            printf("\nHello World"); <-- semi-colon

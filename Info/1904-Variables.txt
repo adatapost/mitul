@@ -1,0 +1,202 @@
+Reading keyboard input
+-------------------------------------------------------------------
+
+ The scanf() function is used to input or reads value from keyboard.
+
+  Syntax:
+
+     scanf("format", &varName,...);
+
+  both printf and scanf function's syntax is located at 'stdio.h'   header file. 
+
+    The printf prints formatted output where as
+    the scanf reads formatted input.
+
+  e.g
+
+     int no;
+
+     printf("\nEnter no : ");
+     scanf("%i", &no);  // &no is pronounce as 'at no variable'
+
+                       The & (amphersand sign) is known as address 			operator and we'll learn address operator in
+			later session.
+
+    So the scanf() function reads data from keyboard and store them into "no" (or at no).
+
+
+   NOTE: Do not include other chars except 'format chars' with scanf()          function.
+
+Example: Input or accept number from user and then print it.
+
+#include <stdio.h>
+
+int main()
+{
+   int no;
+
+   printf("\nEnter the no : ");
+   scanf("%i",&no);
+
+   printf("\n%i",no);
+}
+Example: Input two float numbers and print their values.
+
+#include <stdio.h>
+
+int main()
+{
+
+  float a,b;
+
+  printf("Enter first no : ");
+  scanf("%f",&a);
+
+  printf("\nEnter second no : ");  
+  scanf("%f",&b);
+
+  printf("\nYou've input %f and %f",a,b);
+}
+
+
+Example: Multiple input with single scanf()
+
+#include <stdio.h>
+int main()
+{
+   float a,b;
+   
+   printf("Enter two real numbers : ");
+   scanf("%f%f",&a,&b);  // do not leave spaces in format 
+ 
+   printf("\n%f and %f are two numbers you've input",a,b);
+}
+
+ For multiple input, use spacebar or enter key to feed and seperate the data.
+
+
+Example: Input number and a character.
+
+#include <stdio.h>
+
+int main()
+{
+   char ch;
+   int no;
+
+   printf("Enter the no : ");
+   scanf("%i", &no);
+
+   printf("\nEnter char : ");
+   scanf("%c",&ch);
+
+   printf("\n%d",no);
+   printf("\n%c - %d",ch,ch);
+}
+
+The program wont prompt the 'Enter char :' because of input overflow. When we type numeric + enter (or space) key, the scanf() function adjust the input data firstly in 'no' variable and secondly in 'ch' with enter or space char.
+
+Output:
+ Enter the no : 1000 (enter)
+ Enter char :
+
+  1000
+      -  10  (ASCII of enter key)
+
+
+ fflush(stdin) function
+ ---------------------------------------------------------------------
+  To eat extra bytes from input buffer (keyboard memory).
+
+
+To solve input overflow issue in previous program:
+
+  
+   ......
+   fflush(stdin); 
+
+   printf("\nEnter char : ");
+   scanf("%c",&ch);
+   .......
+   
+
+#include <stdio.h>
+
+int main()
+{
+   char ch;
+   int no;
+
+   printf("Enter the no : ");
+   scanf("%i", &no);
+
+   fflush(stdin); 
+
+   printf("\nEnter char : ");
+   scanf("%c",&ch);
+
+   printf("\n%d",no);
+   printf("\n%c - %d",ch,ch);
+}
+
+Example: Arithmetic operators
+
+         +   addition
+         -   subtraction
+         *   multiply
+         /   division and
+         %   modulo (remainder) for integer data
+
+   4 + 5 * 3
+
+   L=======>R  (Associativity of arithmetic operator is Lef To Right)
+
+   and % / and * operators have higher rank (priority) then + or -
+
+
+int main()
+{
+    int c  = 4 + 10  / 5 * 6 % 20;
+    printf("\n%i",c);
+}
+
+  Use parenthesis operator () to change the rank of expression manually . The () has highest rank of all operators.
+
+   c = (4 + 10) / 5 * 6 % 20;
+
+     = 14 / 5 * 6 % 20;
+
+Example:   Evalute the following expression:
+                           2 
+           a   - b         b  - a
+     m =  -----------  x ----------
+             2                     2
+            a              (b - a )
+
+
+C style Expression:
+
+
+  m =  (a - b)/a*a *  (b*b - a)/ ( (b-a) * (b-a) );
+
+#include <stdio.h>
+
+int main() 
+{
+   float a,b,m;
+   printf("Enter the value for a and b : ");
+   scanf("%f%f",&a,&b);
+   
+    m =  (a - b)/a*a *  (b*b - a)/ ( (b-a) * (b-a) );
+
+    printf("\nm = %f",m);
+}
+
+Example: Input principle amount, rate of interest and term to calculate interest.
+Example: Input integer no and your program prints the last digit of the number you've input.
+
+        e.g input is : 567  then prints 7
+                       100  the prints  0
+Example: Area of given room  -- length x width
+         area of given circle  - A = pi x r x r
+

@@ -1,0 +1,213 @@
+Procedure Oriented Paradigm
+  OR
+Moduler Programming
+=====================================================================
+
+A large program is divided into smaller unit is called "module" or "procedure" or "routine" or "function". Different programming language choose different verbs but in C language we will use "function" or "procedure".
+
+The main objective behind splitting a program are:
+
+    1. Code or statement reusability. You can write the code once and
+	re-use many times.
+
+    2. Ease of debugging.
+
+        Meaning of the term "Debug" is to examine the fault or 	exception in code.
+
+    The C programming language support the modular / procedure oriented 	paradigm (approach or methodology).
+
+    The C++, Java and many programming languages support procedure-	oriented and object-oriented paradigm.
+
+
+The function
+=============
+
+A function is a small independent C program which will be called by another function or by the main() function.
+
+There are two types of functions:
+
+   1. C Standard Library Functions 
+
+ 	printf, scanf, strlen,... are example of C Standard Library 	functions. These functions are deployed with C Installation and
+	available to everyone.
+
+   2. User Defined Functions (UDF)
+
+        A developer / programmer can define his/her own version of 	functions/programs.
+
+
+User Defined Function
+======================
+
+To create user-defined function, we must have to follow two step procedure:
+
+  Step-1    Create a prototype (model) of function so the compiler
+	    can understand the nature of function i.e name of function, 	    what number of data it receives and what type of result it 	    returns.
+
+            Function prototype is also called "Function Declaration".
+
+            General Syntax to create "prototype"
+            -------------------------------------
+
+              return_datatype  functionName(arguments...);
+
+            e.g
+                 int add(int no1, int no2); This declaration instructs 		  the compiler that 
+
+		   => the name of function is "add"
+		   => it takes two integer value/data and
+		   => it returns addition of two numbers
+
+            Function prototype must be created after the #include 		directives and must be terminated by the ; (semicolon).
+               
+
+ Step-2  Function Definition is the second step. Function definition 	 must conforms/matches it prototype and it has following 	general syntax:
+
+	   return_type  functionName(arguments...)
+            {
+                 body of function ........
+                 ......
+             }
+
+        Function definition can be placed any where but the outside of 	any function and after its declaration/prototype.
+
+        Do not terminate the function definition.
+
+
+The 'void' keyword
+-------------------
+
+    The void keyword is used with function return_type or function_arguments. Meaning of void is 'nothing' or 'not' or 'no'.
+
+     If your function does not return value then put the 'void' at return type and if function does not have argument then put the 'void' at argument list.
+
+
+	e.g
+
+	void print_line(void); This function prototype explains that it cannnot take data nor it returns.
+
+
+#include <stdio.h>
+
+/* prototype - Declaration */
+void sayHello(void);
+void print_line(void);
+
+
+
+/* definition */
+
+void print_line(void)   		
+{				   		
+  int i;
+
+  printf("\n");  
+  for(i=1;i<=50;i++)
+   {
+    printf("-");
+   }
+}
+
+
+int main()                 
+{
+   sayHello();
+   print_line();      
+   printf("\nHello");        
+   print_line();
+   printf("\nWorld");
+   print_line();
+}
+
+void sayHello(void)
+{
+  printf("\nHi, Raj");
+}
+
+
+Passing data from calling function to called function
+======================================================================
+In this example, we must have to specify the argument. The argument is a special variable which receive data from the calling function. An argument is also called "Parameter".
+
+Example: Write print_line() function which prints horizontal line with given argument.
+
+#include <stdio.h>
+
+/* prototype */
+
+void print_line(int count);
+
+
+/* definition */
+
+void print_line(int count)  /* argument name is 'count' */ 		
+{			    /* argument type is 'int' */   		
+  int i;
+
+  printf("\n");  
+  for(i=1;i<=count;i++)
+   {
+    printf("-");
+   }
+}
+
+int main()                 
+{
+    
+   print_line(5);      
+   printf("\nHello");        
+   print_line(20);
+   printf("\nWorld");
+   print_line(50);
+}
+
+
+OR
+
+
+int main()                 
+{
+    
+   int i;
+    for(i=1;i<=10;i++)
+     {
+        print_line(i);
+      }
+}
+
+
+Example: print_line() print given char 'n' times.
+
+#include <stdio.h>
+
+/* prototype */
+
+void print_line(int count,char ch);
+
+
+/* definition */
+
+void print_line(int count,char ch)   		
+{				   		
+  int i;
+
+  printf("\n");  
+  for(i=1;i<=count;i++)
+   {
+    printf("%c",ch);
+   }
+}
+
+
+int main()                 
+{
+    
+   print_line(5,'*');      
+   printf("\nHello");        
+   print_line(20,'-');
+   printf("\nWorld");
+   print_line(50,'%');
+}
+
+ 
+ 

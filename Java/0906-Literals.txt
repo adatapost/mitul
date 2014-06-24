@@ -1,0 +1,228 @@
+Literals / Constants
+---------------------------------------------------------------------
+Java assigns following types to the literals:
+
+1. Integer literal
+
+    int no = 15;   Decimal integral literal
+    int no = 012;  Octal literal
+    int no = 0xf;  Hexa decimal literal
+    int no = 0B1010; Binary literal
+ 
+Ex:
+class Sample
+{
+  public static void main(String []args)
+  {
+       int no = 0B1010; /* or 0xA;  or 012 */
+       System.out.println(no);
+   }
+}
+
+Determine the value range of primitive types (capacity to store data)
+--------------------------------------------------------------------
+In Java API, we have equivalent classes of primitive types.
+For instance,
+
+    primitive		Class which wraps a primitive type
+      int			java.lang.Integer
+      byte			java.lang.Byte
+      short			java.lang.Short
+      long 			java.lang.Long
+      float			java.lang.Float
+      double                    java.lang.Double
+      boolean			java.lang.Boolean
+      char			java.lang.Character
+
+  [Note: You don't have to write full class name of java.lang classes
+         because the Java compiler import them automatically. You can          just write "Integer" instead of "java.lang.Integer"]
+
+
+ Use XXXXXX.MIN_VALUE and XXXXXX.MAX_VALUE Constants of wrapper types.
+     [Note: where XXXXXX is the name of wrapper class]
+
+class Sample
+{
+  public static void main(String []args)
+  {
+        System.out.println(Double.MIN_VALUE);
+        System.out.println(Double.MAX_VALUE);
+   }
+}
+
+2. Long literal - Use "L" or "l" suffix with integer literal.
+
+  e.g
+
+      10L  --- long
+      10   --- int
+      0xA  --- int
+      0xAL --- long
+
+class Sample
+{
+  public static void main(String []args)
+  {
+      long no = 100000 * 100000; /* multiplication value exceed the
+                                    range of int */
+
+      System.out.println(no);    
+
+      no =  100000L * 100000L;
+      System.out.println(no);  
+   }
+}
+
+3. Double literal
+
+    Value with decimal point is double literal.
+
+   e.g   10.10  -- double
+         10     -- int
+4. Float literal
+
+    Use "F" or "f" suffix to double literal.
+
+       10.10 -- double literal
+       10.10F -- float literal
+ 
+
+Code in main() method:
+
+       float no = 10.10f;
+       System.out.println(no);
+
+
+5. Character literal - single quote 
+      
+      e.g 'A'  '$'  '?'
+6. String literal - double quote
+
+     e.g "Hello"  "A"  "100.10" etc
+
+7. boolean literal - true or false
+
+     boolean status = true; 
+
+    
+
+Java Comments     Comments are used-defined statements in Java program
+=================  which are ignored by the compiler.
+
+ Two comments syntax:
+
+  1. /*
+       ....
+     */
+
+     Multiline (C-style) comment
+
+  2. // ...
+
+     Single line comment
+
+
+Strings
+=================
+
+ Strings in Java are represent by the java.lang.String class.
+
+
+Ex: code in main:
+
+ String firstName = "Rajesh";
+ String lastName = "Patel";
+
+ System.out.println(firstName);
+ System.out.println(lastName);
+
+
+Ex: Merge strings (Concatenation of strings) using  + operator
+
+ String firstName = "Rajesh";
+ String lastName = "Patel";
+
+ String fullName = firstName + " " + lastName;
+ System.out.println(fullName);
+
+ 
+Ex:
+
+ int age = 10;
+ String name = "Raj";
+ String info;
+
+ info = "Hello I'm " + name + " and " + age + " years old.";
+ System.out.println(info);
+
+
+
+Ex: You can use escape or backslash chars with string literals.
+
+ int roll = 10;
+ String name = "Man";
+
+ String info = "\nRoll : " + roll  + "\nName : " + name;
+ System.out.println(info);
+ //Or
+ System.out.println("Roll   : " + roll 
+                                + "\nName : " + name);
+
+
+Value of any datatype will be converted to string if an expression has "string literal" and + operator.
+
+  e.g
+
+     int a = 10, b =20;
+
+     System.out.println("Sum " + a + b); // Sum 1020
+     System.out.println("Sum " + (a + b)); // Sum 30 by wrapping 
+					   //value of a and b into
+					   //parenthesis
+
+ 
+Ex: Find the length of string -- String.length() method
+
+    e.g
+
+     String name = "Raj";
+     System.out.println(name.length());  // 3
+     System.out.println("Hello".length()); // 5
+
+Ex: upper & lower case
+
+     String name = "Raj";
+     System.out.println(name.toUpperCase());   
+     System.out.println(name.toLowerCase()); 
+
+
+Ex: Search a "string". String.indexOf(str) returns -1 if search fails. Returns index of search string otherwise.
+
+     String name = "The red sun and red rose.";
+     String search = "rod";
+     int index  = name.indexOf(search);
+     System.out.println(index);
+
+   The indexOf(str) starts to search a given string at 0 index and    stops when search string found.
+
+   Use String.indexOf(str,where_to_begin_to_search) The second argument    is integer index to specify the start index to search.
+
+  int index  = name.indexOf(search,5);
+  System.out.println(index);
+
+     
+Ex: Find occurences of a "word" in a given string.
+
+     String name = "The red sun and red rose.";
+     String search = "red";
+     int index  = -1, count  =0 ;
+
+
+      while( (index = name.indexOf(search,index+1))!=-1)
+      {
+         count++;
+       }
+
+       System.out.println("Count : " + count);
+
+

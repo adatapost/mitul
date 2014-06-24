@@ -1,0 +1,272 @@
+7. UPDATE Statement -- To modify value of a row or rows.
+
+
+  UPDATE <<tableName>>  SET column1=new_value1,
+                            column2=new_value2,
+                            .......
+                        WHERE <<relational_or_logical_expression>>
+
+
+  To define relational expression, oracle uses following operators:
+
+         > , < , >= , <= , = , != 
+
+  Logical operators in oracle are:
+
+         and
+         or 
+         not
+         in
+         between
+
+ 
+ -------------------------
+  Table : Emp
+
+  create table emp
+  (
+   eno  number(3) primary key,
+   ename varchar2(30),
+   edate date,
+   edept varchar2(10),
+   esalary number(15,2)
+  );
+  
+  1. Add some rows
+
+     
+  2. >update emp set ename='Ramesh S Patel';
+
+       ename column of all rows will be modified if WHERE expression is
+       not specified. So do not forget to add "where" expression while
+       executing UPDATE and DELETE SQL Statements.
+
+    Change the name of employee whose employee no is 2
+      >update emp set ename='Mahesh S Patel' where eno=2; 
+
+    Change name,date,and salary
+      >update emp set ename='Munir', edate='20-JAN-2012', esalary=8000
+                 where eno = 3;
+
+    Increment 50 Rs to 'Acc' dept employees.
+     >update emp set esalary = esalary + 50 
+                      where edept='Acc';
+
+    Increment 100 Rs to an emp whose join date before 1-Jan-2010 and     belongs to 'Prd' dept.
+  
+     >update emp set esalary = esalary + 100
+               where edate<='1-JAN-2011' and edept='Prd';
+
+8. DELETE Statement - To delete row(s)
+
+
+   DELETE FROM <<tableName>> WHERE <<expression>>;
+
+      NOTE: All rows from table will be deleted when WHERE expression             is not specified.
+
+   Delete an emp whose employee no is 3
+     >delete from emp where eno= 3;
+
+   Delete all 'Acc' dept emps
+
+     >delete from emp where edept='Acc';
+
+   Delete all emps whose join date falls between 1-JAN-1970 to 31-DEC-   2010. 
+
+    >delete from emp where edate>='1-JAN-1970' 
+                    and edate<='31-DEC-2010';
+
+
+
+9. SELECT Statement
+
+   1. with WHERE Expression
+
+     Display all 'Acc' dept emps
+
+     >select * from emp where edept='Acc';
+
+     Display  emps whose join date in between 1-JAN-2002 and 1-JAN-2011
+
+     >select * from emp
+              where edate>='1-JAN-2002' and edate<='1-JAN-2011';
+    
+     Display emp whose employee no is 1
+
+     >select * from emp where eno = 1;
+
+     Display emps whose salary in between 5000 to 50000
+
+     >select * from emp where esalary>=5000 and esalary<=50000;
+
+     Display emps whose employee nums are 1 , 2 and 4
+
+     >select * from emp where eno in (1,2,4);
+
+     List of emps of 'Acc' and 'HR' dept:
+
+     >select * from emp where edept in ('HR','Acc');
+
+     List all emps whose dept is not set (ie. empty or NULL)
+
+     >select * from emp where edept is null;
+
+    List all emps whose dept is set (ie. not empty)
+
+    >select * from emp where edept is not null;
+
+    List all emps whose join date is null or dept is 'Acc'
+
+    >select * from emp where
+                   edate is null or edept='Acc';
+
+    Pattern base search using wildcard % operator
+
+    Select all emp whose name begins with 'R'
+
+    >select * from emp where ename like 'R%';
+
+      The % operator replaces any string pattern after the char 'R'.
+
+    Display all emp whose surname begins with 'Patel'
+
+    >select * from emp where ename like 'Patel%';
+
+    Display all emps whose name contains "Patel"
+
+    >select * from emp where ename like '%Patel%';
+ 
+  2. ORDER BY -  Clause
+
+      SELECT * FROM <<table>
+                 WHERE <<expression>>
+                   ORDER BY column1,column2,.... ASC | DESC       
+
+     To sort table data on specified column(s).
+
+     Note: ORDER BY clause must appear after the WHERE clause.
+
+     Order by eno
+       >select * from emp order by eno;
+     Order by eno desc
+       >select * from emp order by eno desc;
+     All emp from 'Acc' dept and order by name
+
+       >select * from emp 
+                 where  edept='Acc' order by ename;
+    
+  3. DISTINCT clause - To retrieve unique data from the specified                        column.
+
+      SELECT DISTINCT column FROM TABLE ........;
+
+      List the dept name
+      >select edept from emp;
+         
+     >select distinct edept from emp;
+        
+  4. Expression columns - Artimetic, logical and function expression      can be written using :
+
+     
+      SELECT expr1, expr2 AS ALIAS,... FROM TABLE
+
+
+     Display name, salary and 50% of Dearness allowance computed from
+     salary
+ 
+     >select ename, esalary, esalary*0.50 from emp;
+
+     Alias the column or expression
+
+     >select ename as name,
+             esalary as "Basic Salary",
+             esalary*.50 as "Dearness Allowance"
+              from emp;
+
+     upper() and lower() function to change the case
+
+     >select upper(ename),lower(ename) from emp;
+
+ 5. Join or merge the column values
+
+      || (double pipes) operator merge the value of two or more       columns.
+
+      >select ename || ' working in ' || edept || ' department ' from                  EMP;
+
+     >select ename || ' (' || edept || ')' from emp;
+
+
+ 6. GROUP BY clause and aggregate functions - count, min, max, sum,         avg
+
+    GROUP BY clause picks up similar data from the specified columns    and prepare result or perform action of group of rows.
+
+    count of rows in emp table
+    >select count(*) from emp;
+    >select count(*) as "Employees" from emp
+                where edept='Acc';
+
+    >select max(esalary),min(esalary), sum(esalary), avg(esalary)
+           from emp;
+
+
+    GROUP BY Syntax:
+
+       SELECT * FROM <<table>>
+              WHERE <<expr>>
+                 GROUP BY *
+                    ORDER BY *;
+
+        It is important to note that the GROUP BY column list must be         same as SELECT column list.
+
+         Following is invalid statement
+
+               SELECT edept,ename
+                  FROM emp
+                       GROUP BY edept;
+
+         You can use aggregate function with SELECT column list.
+
+          Display count of employees dept wise
+
+         SELECT edept,count(edept) 
+                   from emp
+                     group by edept;
+
+           NOTE: count(edept) is not a column but it is aggragate                  function.
+        
+          Display sum,min,max,avg salary dept wise
+
+         SELECT edept, count(edept), 
+                       max(esalary), min(esalary), avg(esalary),
+                       sum(esalary) from emp 
+                       group by edept;
+                    
+
+TABLE:
+
+create table student
+(
+  roll number(4) primary key,
+  name varchar2(30),
+  class_name number(2),
+  eng number(3),
+  maths number(3), 
+  sci number(3)
+)
+
+1. Display student data along with total and percent
+2. Display students of 3 standard(class_name)
+3. Display max marks in english of 5 std student.
+4. Display max marks in eng,sci,maths in each standard
+5. List the students fail in english
+    
+      select * from student where eng<35;
+
+   List students fails in any one or more subject.
+
+      select * from student where maths<35 or eng<35 or sci<35;
+
+      select eng+math+sci as Total, (eng+math+sci)/3 as Percent
+                 FROM student
+      
+
+   

@@ -1,0 +1,62 @@
+Example: Input a string and convert upper-letter to lower-letter.
+Example: Input a string and convert lower case letters to upper-case.
+Example: Input a string and copy all chars to another string (string copy or array copy).
+Example: Reverse the string.
+Example: Compare two strings and determine whether they are equal or not.
+
+ str1   =    R  a  j  \0
+ str2   =    R  A  j  e  s  h \0
+
+Example: Toggle case - Convert upper letter to lower and vice versa.
+
+
+string.h functions
+===================================================================
+
+string.h is C library functions.
+
+1. strlen(str) -- It returns length of string
+
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+   char str[100];
+   int len;
+
+   printf("Enter the string : ");
+   gets(str);
+
+   len = strlen(str); /* strlen(str) is in-built or library program
+			 which assign length of string to "len" var */
+
+   printf("\nLength : %i",len);
+}
+
+
+2. strupr(str) -- convert to upper case
+3. strlwr(str) -- convert to lower case
+
+4. strcpy(dest_str, source_str) -- Copy 'source_str' to 'dest_str' 
+
+Ex:
+
+  char str[100];
+
+  strcpy(str,"Hello");
+  printf("\n%s",str);
+
+
+Ex:
+
+  char str1[100],str2[100];
+  printf("Enter the string : ");
+  gets(str1);
+
+  strcpy(str2,str1);
+
+  printf("\n%s",str2);
+
+
+

@@ -1,0 +1,165 @@
+C Programming Language
+====================================================================
+
+ 1. What do meant by the term "program"?
+
+    A program is the collection of data and instructions to accomplish      a particular task.
+
+    When we issue a single instruction with some data is called     "command".
+
+
+   Any kind of program which is developed using different programming    languages or platforms but it is executed/ran by the OS.
+
+   The OS is responsible for:
+
+          1. Load the programs from the disk or network
+          2. Verify the instructions of loaded programs.
+          3. Allocate memory (Random Access Memory)
+          4. Controls the flow - sequence, selection and iteration
+          5. Handle the error or exception
+          6. Shutdown the running program (Terminate the program).
+
+2.  Why we learn programming language?
+
+    Because we don't know the instruction set of operating system and     I/we wish to instruct the OS using interpreter/translator.
+
+    The programming language acts as an interpreter or translator which convert programming statements written in "human-alike" language to operating system instruction set.
+
+    C, C++, Java, C#, Python, PHP and many more languages uses English like grammer to develop programs and these languages have ability to translate "English-like" statements into machine acceptable instructions (OS or Native instructions).
+
+
+    Source Program : The programs written by human using programming 		     languages are known as "source programs".
+
+    Object Program : The translator software (Programming languages) convert source program instructions into machine or OS instructions and store machine instructions into a program called "Object Program".
+
+
+The programming Language (Translator)
+=====================================================================
+Programming language does :
+
+  1. Verify the syntax (Grammar) of source program and
+  2. Translate verified soure instructions into object/native 	instructions.
+
+There are two types of translation mechanism exists in different programming languages and these are:
+
+  1. Interpreter 
+  2. Compiler
+
+Interpreter : The "Interpreter" translarator verify the grammar or syntax  one statement at a time. If that particular statement is failed to validate the syntax/grammar rules then interpreter stops the further interpretation. If that particular statement is validated then interpreter picks up next statement and so on.
+
+
+Compiler: The "compiler" translator verify and validate all statements at once. If any one or all statements violate syntax rules then compiler display error-messages. It produces an object program if everything is OK.
+
+
+The C, C++ uses "Compiler" where as Java uses both compiler and interpreter.
+  
+ 
+C Language basics
+===================================================================
+
+Characters (alphabets,digits, special chars, whitespace), words, tokens, statements and sentenses are group together under some rigid rules (these rules are called Syntax) form a program.
+
+
+Following are building blocks of C Programs
+
+1. Character set - Following characters are valid in the context of C 		           Programming language.
+
+    Alphabets	-	A..Z
+			a..z
+    Digits	-	0..9
+	
+    Special Characters	-	? , < > " ' etc. (All printable chars)
+
+    whitespaces	-	space, tab key, enter key						new-line, form-feed etc	
+
+2. Words -- There are two types of words in C Language:
+
+           1. Identifiers  or User-defined words
+
+	   2. Keywords  or Reserved words 
+
+    Identifiers
+    -----------
+
+    Name of variable, function, array, structure is known as     "Identifiers". In C Language, we must have to following naming 	rules to create or define "Identifiers".
+
+           1. Identifiers must begins with an alphabet or underscore 	      (_).
+
+           2. Whitespaces are not allowed.
+
+           3. Identifiers allow A..Z, a..z, 0..9 and _ (underscore) as
+	      a special character.
+
+	   4. Identifier must not a reserved word (keyword).
+           
+
+     e.g
+
+	raj  - Valid
+	1raj	- Invalid
+	Raj	- Valid
+	Raj Shah - Invalid
+	RajShah	 - Valid
+	Raj_shah	 valid
+        Raj+Shah	  Invalid (Only _ underscore is allowed as a 			 special char.)
+
+        _1  - Valid
+        _abc - valid 
+
+   Keywords
+   ---------
+    Keywords are reserved words ( verbs) of C Language and each keyword
+    has its own feature or function so we cannot use keywords as     identifiers.
+
+    Keywords must be in lowercase (small) letter.
+
+    Example of some keywords are : 
+
+                int	char	float	double	void
+		if	while	for	do	break .......
+
+
+
+C Tokens
+==========
+Symbols and punctutation marks used in C language are called tokens.
+
+1. Literals -- Literals also known as constant (fixed value e.g value 		of pi)
+
+   Literal/constant value cannot be modified/changed during program    execution.
+
+   Following are symbols used to define literals:
+
+   integer or intergral literal  : Number including +  or - sign 
+   -----------------------------   and without scale (decimal point)
+
+	e.g	10	is called integer constant
+		-100	--do--
+		0	--do--
+
+		1.2	is not integer constant
+   character constant  : Single character enclosed with single quote
+   ------------------	 is called char constant/literal
+
+	e.g	'A'	- Valid char constant
+		'#'	- --do--
+		'5'	- --do--
+		5	- No. It is integer constant
+		'AA'	- No. Invalid value
+  String constant : Char(s) enclosed with double quotes is called
+  ------------------ string constant.
+
+
+     e.g "H"	- String constant
+	 "Hello" - String constant
+ 	 "10"	 - string constant
+	 20	 - No. It is integer constant
+	 ""	 - String constant (empty string)
+
+  real constant (float) : Numeric value having +ve/-ve sign with scale.
+  ---------------------
+    e.g  1.2	- real or float constant
+	-1000000.00	- --do--
+	10	- No. It is integer
+	"10.10"	- No. It is string
+

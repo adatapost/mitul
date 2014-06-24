@@ -1,0 +1,138 @@
+Variables  -- You can create a variable anywhere
+------------------------------------------------------------------
+
+In Java, you just need to create a variable before it is used. You can create variable at begin of main or middle of main or inside the if statement or for/while/do while statement.
+
+
+Ex:
+
+class Test
+{
+  public static void main(String []argS)
+   {
+      int a = 10; 
+
+      for(int i=1;i<=10;i++)
+       {
+         System.out.println(i);
+        }
+       int square = a*a;
+       System.out.println(square);
+     }
+}
+
+
+class Test
+{
+  public static void main(String []argS)
+   {
+      int i = 0; 
+      for(i=1;i<=10;i++)
+       {
+         System.out.println(i);
+        }
+     }
+}
+
+Operators
+==============================================================
+1. Arithmetic operators  +  -  *  /  % (modulo)
+
+2. Increment/Decrement Operators   ++  and --  (pre and post)
+
+3. Relational operator  >   >=   <   <=   ==   !=
+
+4. Logical operator   &&    ||    !
+
+5. Conditional operator Or Teranary operator
+
+        exp1 ?  exp2 : exp3;
+
+6. Assignment operators   =    
+7. Short-hand assignment operators 
+
+        +=   is equivalent to   x = x + value;
+        -=
+        *=
+        /=
+        %=
+
+     e.g   a = 3;
+           a = a + 4;  OR  a+=4;
+          
+Input from the keyboard 
+====================================================================
+We will have to use java.util.Scanner class and its methods to read input from keyboard.
+
+class Test
+{
+  public static void main(String []args)
+   {
+       java.util.Scanner sc = new java.util.Scanner(System.in);
+
+       System.out.print("Enter age : ");
+       int age = sc.nextInt();
+
+        
+       sc.nextLine();//eat newline - flush the buffer
+
+       System.out.print("Enter name : ");
+       String name = sc.nextLine();
+
+       System.out.println(age + " " + name);
+     }
+}
+
+Use nextInt(), nextFloat(), nextDouble(), next(), nextLong() etc methods.
+     
+        
+Examples:  
+
+1. Reverse number    
+
+class Test
+{
+  public static void main(String []args)
+   {
+       java.util.Scanner sc = new java.util.Scanner(System.in);
+
+        int no,rno=0;
+
+        System.out.print("Enter no : ");
+        no = sc.nextInt();
+
+        while( no > 0) 
+        {
+           int r = no % 10;
+           rno = rno * 10 + r;
+           no = no / 10;
+    
+         }        
+        System.out.println("Reverse no  : " + rno);
+     }
+}
+
+2. Examine the prime number.
+3. Validate the date
+4. Convert decimal to binary and vice-versa
+5. Print
+
+   1 0 1 0
+   0 1 0 1
+   1 0 1 0
+    .......
+
+   Use System.out.print() to print without newline (\n)
+       System.out.println() to print with newline and also you can use        escape char \n.
+
+
+Formatted output using %d %f and %s format and System.out.printf() method
+---------------------------------------------------
+
+ code in main:
+
+   int age = 10;
+   String name = "Raj";
+
+   System.out.printf("\n%s is %d years old",name,age);
+

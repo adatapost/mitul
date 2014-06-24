@@ -1,0 +1,121 @@
+Loop statement
+======================================================================
+Loop statement is used to repeat one or more statement n-times or till condition is true.
+
+With selection statemens - if and switch, we can execute selective statements or we can jump to a block or ignore a code of block. The loop statement allow us to repeat a code.
+
+Three loop statements:
+
+   1. for loop
+   2. while loop and
+   3. do  while loop
+
+
+All three statements serve the common purpose except they have different syntax.
+
+
+for loop
+==================================
+
+ Syntax:
+
+  for(initialization; condition; increment_or_decrement)
+  {
+    body of for loop
+  }
+
+ for loop has three expressions: 
+
+      1. initialization -- To initialize the loop control variables 
+      2. condition      -- It determines how many times a body of loop
+			   will be executed. 
+
+ 			   The loop statement will be terminated when
+			   condition expression evalutes false.
+
+     3. Incr/Decr expression -- To perform arithmetic operations on
+				loop control variable.
+
+
+Example: 
+
+
+#include <stdio.h>
+
+int main()
+{
+
+ int a;
+
+     +----------- Init will be executed once when loop begins (1)
+     |    +------- If condition is true then execute the body (2)
+     V    V          and if it is false stops the loop statement
+ for(a=1;a<=5;a++)
+               ^
+  {            |----------------(4)
+    printf("\nHello");
+  } <------------------ After executing body, incr/decr expression
+			 will be executed (3)
+}
+
+Example: 
+
+#include <stdio.h>
+
+int main()
+{
+  int a,b;
+
+  for(a=1,b=2; a<=3 && b>=0; a++, b--)
+  {
+     printf("\n%i  %i",a,b);
+  }
+}
+
+You can add two or more expressions in initialization and incr/desc using comma (,) seperator operator.
+
+Dry Run (Test the correctness of code)
+---------------------------------------       Output  1   2
+                                                      2   1
+ a    b     a<=3      b>=0                            3   0
+ 1    2      1         1 
+ 2    1      1         1 
+ 3    0      1         1
+ 4    -1     0         0
+
+Example:
+
+for loop has three expressions(clauses) and these are optional. You just need to put semi-colon between three exprs.
+
+#include <stdio.h>
+int main()
+{
+  for(;;)
+   {
+     printf("\nHello");
+    }
+}
+
+ There is no init clause.
+ There is no incr/decr clause. but 
+ here is value of condition clause is true so this loop will not stopped/terminate (infinite). You need to press Ctrl+C or Ctrl+Break to stop the program.
+  
+
+Example:
+
+ int a;
+ for(a=10;a;a--)
+ {
+   printf("\n%d",a);
+  }
+
+Dry run
+--------
+a          a (condition)
+10          1 (true)
+9           1 
+8           1
+
+1
+0            0<-- loop will be stopped
+

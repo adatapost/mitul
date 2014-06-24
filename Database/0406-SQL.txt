@@ -1,0 +1,91 @@
+Transactions -- commit and rollback
+--------------------------------------------------------------------
+
+Whenever we issue SQL statement especially - INSERT/DELETE/UPDATE, the oracle database creates a "transaction". A transaction is an end-point of active session/connection of user so user can decide whether the data she/he has given to oracle is to store permanently or temoporarly.
+
+ If you want to keep data/records forever then issue "commit" SQL command from the SQL prompt.
+
+ And if you don't want to store data then issue "rollback" command. The "rollback" remove all changes (undone) after the last commit.
+
+ >insert into emp values (10,'Raj','10-JAN-2002','ACC',9000);
+  
+   This statement starts the 'transaction' and this transaction will be
+   active till rollback or commit is not issued.
+
+ >insert into emp values (20,'Maj','10-JAN-2002','ACC',9000);
+
+
+   Second statement to current transaction
+
+ >commit; Accept the changes and finish the transaction.
+
+ >update emp set ename='ABC';  will creates a new transaction
+
+     This statement will update ename of all emps so we will have to
+     undo this transcation.
+
+ >rollback; Reject the changes and finish the transaction.
+
+
+Foreign key or Reference constraints
+====================================================================
+
+The foreign key constraints check the existence of data into another table when we issue INSERT,DELETE or UPDATE statements.
+
+
+The main objective of foreign key constraints to maintain data-integrity.
+
+
+For example, we have 'dept' table which hold following data:
+
+ deptno  deptname location
+  10     ACC		Mehsana
+  20     PRD		Ahmedabad
+
+and another table called 'emp' has following data:
+
+  eno  ename deptno
+   1   Raj    20
+   2   Mohan  20
+   3   Suraj  10
+   4   Mona   50  <---- 50 deptno not exists in dept table so it
+   5   Sonal  10        violates data-integrity rule.
+
+        In the context of 'emp' table, the 'dept' table is called         'Foreign Table' because the 'emp' table refer / contact the
+         'dept' table whenever user try to insert/delete/update record
+         from emp table.
+
+
+Define a foreign key contraints
+--------------------------------
+
+1. First of all "foreign table" must have a primary key column and only the primary key column can be used as "foreign key".
+
+
+2.  
+  CREATE TABLE DEPT               <-------- THIS TABLE IS ALSO
+  (                                         KNOWN AS "MASTER" OR
+    DEPTNO  NUMBER(3) PRIMARY KEY,          "PARENT" TABLE
+    DEPTNAME VARCHAR2(30),
+    LOCATION VARCHAR(30)
+   );
+
+  CREATE TABLE EMP               <--------- THIS TABLE IS KNOWN AS
+  (                                         "DETAIL" OR "CHILD" TABLE 
+   ENO  NUMBER(3) PRIMARY KEY,              OF "DEPT".
+   ENAME VARCHAR2(40),
+   DEPT_NO NUMBER(3),
+   FOREIGN KEY (DEPT_NO) REFERENCES DEPT(DEPTNO)
+  );             ^                        ^
+                 |                        | 
+              EMP TABLE'S             DEPT TABLE'S COLUMN NAME
+                COLUMN NAME
+
+  IMPORTANT:
+  
+       1. NAME OF COLUMNS IN MASTER TABLE OR CHILD TABLE CAN BE SAME
+           OR DIFFERENT.
+       2. BUT THE DATATYPE AND SIZE OF BOTH COLUMNS MUST BE SAME.
+
+    
+  
