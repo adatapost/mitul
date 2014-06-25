@@ -1,0 +1,43 @@
+public class Point {
+    private int x,y;
+
+    public Point(){}
+    public Point(int mx,int my) { x = mx; y = my; }
+    
+    public int getX() { return x;}
+    public void setX(int v) { x=v;}
+    public int getY() { return y;}
+    public void setY(int v){y=v;}
+
+}
+public class Poly {
+   private Point []pts;
+   public Poly() {
+      pts = new Point[5];
+
+      pts[0] = new Point(3,5);
+      pts[1] = new Point(8,5);
+      pts[2] = new Point(8,1);
+      pts[3] = new Point(1,1);
+      pts[4] = new Point(4,1);
+   }
+   public int getBase() { return pts[2].getX() - pts[3].getX(); }
+   public int getHeight() { return pts[0].getY() - pts[4].getY(); }
+   public double getArea() { return getBase()*getHeight()/2.0;}
+
+    public void setPts(Point []v) { pts = v;}
+    public Point []getPts() { return pts;}
+}
+
+ public class Test
+{
+  public static void main(String []args)
+   {
+    Poly poly = new Poly();
+    System.out.println(poly.getBase());
+    System.out.println(poly.getHeight());
+    System.out.println(poly.getArea());
+
+
+    }
+}
