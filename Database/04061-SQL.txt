@@ -1,7 +1,10 @@
 Transactions -- commit and rollback
 --------------------------------------------------------------------
 
-Whenever we issue SQL statement especially - INSERT/DELETE/UPDATE, the oracle database creates a "transaction". A transaction is an end-point of active session/connection of user so user can decide whether the data she/he has given to oracle is to store permanently or temoporarly.
+Whenevegfhojofh\
+ghgfhl\
+kfgh
+r we issue SQL statement especially - INSERT/DELETE/UPDATE, the oracle database creates a "transaction". A transaction is an end-point of active session/connection of user so user can decide whether the data she/he has given to oracle is to store permanently or temoporarly.
 
  If you want to keep data/records forever then issue "commit" SQL command from the SQL prompt.
 
