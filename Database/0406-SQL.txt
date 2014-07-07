@@ -86,6 +86,6 @@ Define a foreign key contraints
        1. NAME OF COLUMNS IN MASTER TABLE OR CHILD TABLE CAN BE SAME
            OR DIFFERENT.
        2. BUT THE DATATYPE AND SIZE OF BOTH COLUMNS MUST BE SAME.
-
+no one sallowed to chanfge
     
   
